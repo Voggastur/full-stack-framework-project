@@ -1,0 +1,194 @@
+[
+  {
+    "pk": 1,
+    "model": "products.product",
+    "fields": {
+      "sku": "1",
+      "name": "Caledonia Handmade Womens Bag",
+      "description": "Exceptional bag in worked leather with straps and decor of african art.",
+      "price": 79.99,
+      "category": 1,
+      "image_url": "https://raw.githubusercontent.com/Voggastur/fsf-project/master/media/bag1.jpg"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "products.product",
+    "fields": {
+      "sku": "2",
+      "name": "Magnificence - The Womens Bag",
+      "description": "A nice bag for a stroll on the streets of Paris.",
+      "price": 64.49,
+      "category": 1,
+      "image_url": "https://raw.githubusercontent.com/Voggastur/fsf-project/master/media/bag2.jpg"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "products.product",
+    "fields": {
+      "sku": "3",
+      "name": "Extra Original Womens Bag",
+      "description": "Handmade bag in cloth and nylon with buttons imported from Austria's famous Hansen Fashion.",
+      "price": 53.99,
+      "category": 1,
+      "image_url": "https://raw.githubusercontent.com/Voggastur/fsf-project/master/media/bag3.jpg"
+    }
+  },
+  {
+    "pk": 4,
+    "model": "products.product",
+    "fields": {
+      "sku": "4",
+      "name": "Hercynia Womens Bag",
+      "description": "Modern bag made with much love.",
+      "price": 59.99,
+      "category": 1,
+      "image_url": "https://raw.githubusercontent.com/Voggastur/fsf-project/master/media/bag4.jpg"
+    }
+  },
+  {
+    "pk": 5,
+    "model": "products.product",
+    "fields": {
+      "sku": "5",
+      "name": "Velvet Satin Dress",
+      "description": "The elegant 5-star Velvet Satin Dress, featuring an embroidered and flanged trim.",
+      "price": 99.99,
+      "category": 2,
+      "image_url": "https://raw.githubusercontent.com/Voggastur/fsf-project/master/media/dress1.png"
+    }
+  },
+  {
+    "pk": 6,
+    "model": "products.product",
+    "fields": {
+      "sku": "6",
+      "name": "Ladies Shirt",
+      "description": "Durable embroidered womens shirt for a hot summer day.",
+      "price": 129.99,
+      "category": 2,
+      "image_url": "https://raw.githubusercontent.com/Voggastur/fsf-project/master/media/shirt2.png"
+    }
+  },
+  {
+    "pk": 7,
+    "model": "products.product",
+    "fields": {
+      "sku": "7",
+      "name": "Cephalon Orange Shirt",
+      "description": "Elegant womens shirt with a radiant glow",
+      "price": 129.99,
+      "category": 2,
+      "image_url": "https://raw.githubusercontent.com/Voggastur/fsf-project/master/media/shirt3.png"
+    }
+  },
+  {
+    "pk": 8,
+    "model": "products.product",
+    "fields": {
+      "sku": "8",
+      "name": "Heras Patterned Shirt",
+      "description": "Elegant homemade shirt with embroidered patterns.",
+      "price": 129.99,
+      "category": 2,
+      "image_url": "https://raw.githubusercontent.com/Voggastur/fsf-project/master/media/shirt4.png"
+    }
+  },
+  {
+    "pk": 9,
+    "model": "products.product",
+    "fields": {
+      "sku": "9",
+      "name": "King Salomos Wedding Jewelry Variant 1",
+      "description": "Classical east african wedding jewelry variant 1",
+      "price": 58.99,
+      "category": 3,
+      "image_url": "https://raw.githubusercontent.com/Voggastur/fsf-project/master/media/jewelry.jpg"
+    }
+  },
+  {
+    "pk": 10,
+    "model": "products.product",
+    "fields": {
+      "sku": "10",
+      "name": "King Salomos Wedding Jewelry Variant 2",
+      "description": "Classical east african wedding jewelry variant 2",
+      "price": 58.99,
+      "category": 3,
+      "image_url": "https://raw.githubusercontent.com/Voggastur/fsf-project/master/media/jewelry2.jpg"
+    }
+  },
+  {
+    "pk": 11,
+    "model": "products.product",
+    "fields": {
+      "sku": "11",
+      "name": "King Salomos Wedding Jewelry Variant 3",
+      "description": "Classical east african wedding jewelry variant 3",
+      "price": 58.99,
+      "category": 3,
+      "image_url": "https://raw.githubusercontent.com/Voggastur/fsf-project/master/media/jewelry3.jpg"
+    }
+  },
+  {
+    "pk": 12,
+    "model": "products.product",
+    "fields": {
+      "sku": "12",
+      "name": "King Salomos Wedding Jewelry Variant 4",
+      "description": "Classical east african wedding jewelry variant 4",
+      "price": 58.99,
+      "category": 3,
+      "image_url": "https://raw.githubusercontent.com/Voggastur/fsf-project/master/media/jewerly4.jpg"
+    }
+  },
+  {
+    "pk": 13,
+    "model": "products.product",
+    "fields": {
+      "sku": "13",
+      "name": "Colored stone earrings",
+      "description": "Cut from granite of the ancient city of Axum, colored with african pastel art, a showcase in style.",
+      "price": 12.99,
+      "category": 4,
+      "image_url": "https://raw.githubusercontent.com/Voggastur/fsf-project/master/media/earrings1.jpg"
+    }
+  },
+  {
+    "pk": 14,
+    "model": "products.product",
+    "fields": {
+      "sku": "14",
+      "name": "Elegant African Earrings",
+      "description": "Simply Elegance.",
+      "price": 21.99,
+      "category": 4,
+      "image_url": "https://raw.githubusercontent.com/Voggastur/fsf-project/master/media/earrings2.jpg"
+    }
+  },
+  {
+    "pk": 15,
+    "model": "products.product",
+    "fields": {
+      "sku": "15",
+      "name": "Kunta Earrings",
+      "description": "Tribal Kunta earrings made with much love",
+      "price": 8.99,
+      "category": 4,
+      "image_url": "https://raw.githubusercontent.com/Voggastur/fsf-project/master/media/earrings3.jpg"
+    }
+  },
+  {
+    "pk": 16,
+    "model": "products.product",
+    "fields": {
+      "sku": "16",
+      "name": "Simply Elegant Earrings",
+      "description": "An exhibition in contrast, these simple but elegant earrings carry flair.",
+      "price": 5.99,
+      "category": 4,
+      "image_url": "https://raw.githubusercontent.com/Voggastur/fsf-project/master/media/earrings4.jpg"
+    }
+  }
+]

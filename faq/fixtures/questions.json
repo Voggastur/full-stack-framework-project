@@ -1,0 +1,18 @@
+[
+  {
+    "pk": 1,
+    "model": "faq.question",
+    "fields": {
+      "text": "How fast can you deliver a dress to London UK?",
+      "created_by": "rick"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "faq.question",
+    "fields": {
+      "text": "What materials do you use for production?",
+      "created_by": "morty"
+    }
+  }
+]

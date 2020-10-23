@@ -1,0 +1,22 @@
+[
+  {
+    "pk": 1,
+    "model": "faq.answer",
+    "fields": {
+      "head": "Material question",
+      "answer": "I ordered on a friday, and had it delivered on wednesday, impressive work. The dress is fancy and looks great",
+      "question": 1,
+      "created_by": "Hugh Grant"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "faq.answer",
+    "fields": {
+      "head": "Material Answer",
+      "answer": "I use mostly cotton fabric for my dresses and leather for the bags",
+      "question": 2,
+      "created_by": "Brad Pitt"
+    }
+  }
+]

@@ -15,9 +15,7 @@ class UserProfile(models.Model):
     image = models.ImageField(null=True, blank=True)
     default_phone_number = models.CharField(
         max_length=20, null=True, blank=True)
-    default_street_address1 = models.CharField(
-        max_length=80, null=True, blank=True)
-    default_street_address2 = models.CharField(
+    default_street_address = models.CharField(
         max_length=80, null=True, blank=True)
     default_town_or_city = models.CharField(
         max_length=40, null=True, blank=True)

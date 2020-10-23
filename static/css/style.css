@@ -1,0 +1,160 @@
+/* General */
+
+html,
+body,
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Merriweather";
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+  transition: all 0.5s;
+}
+
+a:active,
+a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.hvr-radial-out::after:hover {
+    color: white;
+}
+
+/* Navbar Bootstrap Fixed */
+
+header {
+  height: 80px;
+}
+
+nav {
+  background-image: linear-gradient(to top, #fafafa, #f0d4e8);
+}
+
+.navbar-brand {
+  width: 200px;
+}
+
+.navbar-brand img {
+  width: 100%;
+}
+
+.nav-link {
+  font-size: 1.2em;
+}
+
+.custom-list {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
+
+.cart {
+  position: fixed;
+  right: 4em;
+}
+
+.bag {
+  position: fixed;
+  right: 8em;
+}
+
+.brand-header {
+  font-style: oblique;
+  font-family: "Montserrat";
+  text-shadow: 2px 4px #eee;
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  margin-top: 80px;
+  margin-bottom: 0px;
+  background-color: #fafafa;
+}
+
+/* Landing Section */
+
+section {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.large-img {
+  border-radius: 40px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.front-p {
+  font-family: "Montserrat";
+  font-size: 1.3em;
+  line-height: 1.4em;
+}
+
+.card {
+  border-radius: 25px;
+  box-shadow: 5px 5px 20px #60555d, -5px -5px 20px #ffffff;
+}
+
+/* Products */
+
+.card-img-top {
+    height: 320px;
+}
+
+/* Product Detail */
+
+.card-img {
+    height: 50vh;
+  object-fit: contain;
+}
+
+.review-card {
+  align-items: center;
+}
+
+/* About */
+
+.about-container {
+  padding: 40px 30px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.about-title {
+  text-align: center;
+  font-family: "Merryweather";
+  text-shadow: 2px 2px #bbb;
+  font-size: 2.4em;
+}
+
+.about-text {
+  font-family: "Montserrat";
+  font-size: 1.4em;
+  line-height: 1.4em;
+}
+
+/* FOOTER */
+
+.footer {
+  background-image: linear-gradient(to top, #f0d4e8, #fafafa);
+  padding: 30px 0;
+}
+
+footer p {
+  text-align: center;
+  font-size: 1em;
+}
+
+footer ul {
+  list-style: none;
+  text-align: center;
+}
+
+footer i {
+  font-size: 2.4em;
+  color: purple;
+}

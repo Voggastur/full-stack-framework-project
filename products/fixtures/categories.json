@@ -20,7 +20,7 @@
     "model": "products.category",
     "fields": {
       "name": "jewelry",
-      "friendly_name": "Wedding Jewelry"
+      "friendly_name": "Jewelry"
     }
   },
   {

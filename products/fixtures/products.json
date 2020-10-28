@@ -4,7 +4,7 @@
     "model": "products.product",
     "fields": {
       "sku": "1",
-      "name": "Exquisite Handmade Womens Bag",
+      "name": "Caledonia Handmade Womens Bag",
       "description": "Exceptional bag in worked leather with straps and decor of african art.",
       "price": 79.99,
       "category": 1,
@@ -16,7 +16,7 @@
     "model": "products.product",
     "fields": {
       "sku": "2",
-      "name": "Arverni Womens Bag",
+      "name": "Magnificence - The Womens Bag",
       "description": "A nice bag for a stroll on the streets of Paris.",
       "price": 64.49,
       "category": 1,
@@ -28,7 +28,7 @@
     "model": "products.product",
     "fields": {
       "sku": "3",
-      "name": "Extra Original Bohemian Womens Bag",
+      "name": "Extra Original Womens Bag",
       "description": "Handmade bag in cloth and nylon with buttons imported from Austria's famous Hansen Fashion.",
       "price": 53.99,
       "category": 1,
@@ -40,7 +40,7 @@
     "model": "products.product",
     "fields": {
       "sku": "4",
-      "name": "Victorias Womens Bag",
+      "name": "Hercynia Womens Bag",
       "description": "Modern bag made with much love.",
       "price": 59.99,
       "category": 1,
@@ -56,7 +56,7 @@
       "description": "The elegant 5-star Velvet Satin Dress, featuring an embroidered and flanged trim.",
       "price": 99.99,
       "category": 2,
-      "image_url": "https://raw.githubusercontent.com/Voggastur/full-stack-framework-project/master/media/apparel1.png"
+      "image_url": "https://raw.githubusercontent.com/Voggastur/full-stack-framework-project/master/media/dress1.png"
     }
   },
   {
@@ -68,7 +68,7 @@
       "description": "Durable embroidered womens shirt for a hot summer day.",
       "price": 129.99,
       "category": 2,
-      "image_url": "https://raw.githubusercontent.com/Voggastur/full-stack-framework-project/master/media/apparel2.png"
+      "image_url": "https://raw.githubusercontent.com/Voggastur/full-stack-framework-project/master/media/shirt2.png"
     }
   },
   {
@@ -80,7 +80,7 @@
       "description": "Elegant womens shirt with a radiant glow",
       "price": 129.99,
       "category": 2,
-      "image_url": "https://raw.githubusercontent.com/Voggastur/full-stack-framework-project/master/media/apparel3.png"
+      "image_url": "https://raw.githubusercontent.com/Voggastur/full-stack-framework-project/master/media/shirt3.png"
     }
   },
   {
@@ -92,7 +92,7 @@
       "description": "Elegant homemade shirt with embroidered patterns.",
       "price": 129.99,
       "category": 2,
-      "image_url": "https://raw.githubusercontent.com/Voggastur/full-stack-framework-project/master/media/apparel4.png"
+      "image_url": "https://raw.githubusercontent.com/Voggastur/full-stack-framework-project/master/media/shirt4.png"
     }
   },
   {
@@ -140,7 +140,7 @@
       "description": "Classical east african wedding jewelry variant 4",
       "price": 58.99,
       "category": 3,
-      "image_url": "https://raw.githubusercontent.com/Voggastur/full-stack-framework-project/master/media/jewelry4.jpg"
+      "image_url": "https://raw.githubusercontent.com/Voggastur/full-stack-framework-project/master/media/jewerly4.jpg"
     }
   },
   {
@@ -149,7 +149,7 @@
     "fields": {
       "sku": "13",
       "name": "Colored stone earrings",
-      "description": "Cut from granite of the ancient city of Axum, colored with african pastel art, a showcase in axumite style.",
+      "description": "Cut from granite of the ancient city of Axum, colored with african pastel art, a showcase in style.",
       "price": 12.99,
       "category": 4,
       "image_url": "https://raw.githubusercontent.com/Voggastur/full-stack-framework-project/master/media/earrings1.jpg"
@@ -184,7 +184,7 @@
     "model": "products.product",
     "fields": {
       "sku": "16",
-      "name": "Haba Kunei Earrings",
+      "name": "Simply Elegant Earrings",
       "description": "An exhibition in contrast, these simple but elegant earrings carry flair.",
       "price": 5.99,
       "category": 4,

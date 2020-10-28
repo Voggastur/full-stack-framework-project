@@ -5,7 +5,8 @@
     "fields": {
       "header": "Fast delivery time",
       "body": "I ordered on a friday, and had it delivered on wednesday, impressive work. The dress is fancy and looks great",
-      "reviewed_product": 5
+      "reviewed_product": 5,
+      "created_by": 3
     }
   },
   {
@@ -14,7 +15,8 @@
     "fields": {
       "header": "Impressive handwork",
       "body": "Its a nice bag except I don't like the flimsy buttons. However the straps and trims shows great material work and I like it.",
-      "reviewed_product": 3
+      "reviewed_product": 3,
+      "created_by": 2
     }
   },
   {
@@ -23,7 +25,8 @@
     "fields": {
       "header": "Amazing Wedding Jewelry",
       "body": "Ordered the variant 3 wedding jewelry and it looks amazing, it looks even better in real life, like royal accessory, truly pleased.",
-      "reviewed_product": 11
+      "reviewed_product": 11,
+      "created_by": 2
     }
   }
 ]

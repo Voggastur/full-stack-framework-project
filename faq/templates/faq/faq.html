@@ -1,23 +1,92 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% load static %}
-{% block extra_title %}- FAQ{% endblock %}
 
+{% block extra_title %}- FAQ{% endblock %}
 {% block content %}
-<div class="container">
-	<div class="about">
-		<h1 class="about-title">FAQ/h1>
-		<div class="about-container">
-			<p class="about-text">
-                Me, Web designer.
-                <br>
-                <br>
-                long paragraph
-                <br>
-                <br>
-                long paragraph 2
-			</p>
+
+<h5 class="text-center my-5">Frequently Asked Questions</h5>
+
+{% for question in questions %}
+<div class="container my-5">
+  <div class="card">
+    <div class="card-header">
+      <h4>
+        {{ question.text }}
+      </h4>
+      <p class="font-italic text-left">Posted by 
+      {% if question.created_by %}{{question.created_by}}{% else %}Guest{% endif %} at 
+      {% if question.created_at %}{{question.created_at}}{% else %}an unknown time{% endif %}</p>
+    </div>
+    <div class="card-body">
+        <div>
+          {% if answers.related_question %}
+          <p class="text-left">{{answers.text}}</p>
+          <p class="text-left">{{answers.created_at}}</p>
+              {% if request.user.is_superuser %}
+		      <a class="btn btn-outline-black" href="#"
+		    		aria-label="delete button">Edit Answer</a>
+              <a class="btn btn-outline-black" href="#"
+		    		aria-label="delete button">Delete Answer</a>
+              {% endif %}
+          {% else %}
+          <p class="text-left">No answer submitted by admin yet</p>
+              {% if request.user.is_superuser %}
+              <a class="btn btn-outline-black" href="#"
+		    		aria-label="edit button">Add Answer</a>
+              {% endif %}
+          {% endif %}
+          
+        </div>
+    </div>
+    <div class="card-footer">
+        {% if question.created_by == request.user %}
+            {% if not locked %}
+		<div class="button-wrapper">
+			<a class="btn btn-outline-black" href="{% url 'edit_question' question.id %}"
+				aria-label="edit button">Edit</a>
+			<a class="btn btn-outline-black" href="{% url 'delete_question' question.id %}"
+				aria-label="delete button">Delete</a>
+		</div>
+            {% endif %}
+		{% endif %}
+        {% if request.user.is_superuser %}
+        <div class="button-wrapper outline-primary float-right">
+			<a class="btn btn-outline-black" href="{% url 'edit_question' question.id %}"
+				aria-label="edit button">Edit Question</a>
+			<a class="btn btn-outline-black" href="{% url 'delete_question' question.id %}"
+				aria-label="delete button">Delete Question</a>
+		</div>
+        {% endif %}
+        <p class="text-muted text-italic"><small>Question will be locked for editing after Admin answer</small></p>
+    </div>
+  </div>
+</div>
+{% endfor %}
+<!-- Button trigger modal with form for 'add_question' view -->
+<button type="button" class="btn btn-large btn-outline-black d-block m-auto my-10" data-toggle="modal" data-target="#questionModal">
+Write a question
+</button>
+<div class="modal fade" id="questionModal" tabindex="-1" role="dialog" aria-labelledby="questionModalLabel"
+	aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Enter Question to post</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+			</div>
+			<div class="modal-body">
+				<form class="form" method="POST" action="{% url 'add_question' %}">
+					{% csrf_token %}
+                    {{ qform }}
+                    <div class="px-40">
+						<button class="btn btn-outline-black float-left" type="submit">Submit Question</button>
+						<a class="btn btn-outline-black float-right" data-dismiss="modal">Cancel</a>
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
 </div>
-
 {% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_title %}- Edit Question{% endblock %}
+{% block content %}
+
+<div class="container">
+	<div class="row">
+		<div class="col-6 offset-3">
+			<div class="card">
+				<div class="card-body">
+					<h3 class="text-center">Edit Question</h3>
+					<hr class="w-75">
+					<form action="{% url 'edit_question' question.id %}" method="POST" class="mb-4">
+						<div class="col-12 col-md-8 offset-md-2">
+							{% csrf_token %}
+							{{ qform }}
+						</div>
+						<div class="col-sm-12 col-12 text-center">
+							<button class="btn btn-outline-black float-left" type="submit">Update</button>
+                            <a class="btn btn-outline-black float-right" href="{% url 'faq' %}">Cancel</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock  %}

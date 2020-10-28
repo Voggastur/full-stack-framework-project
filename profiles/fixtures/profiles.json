@@ -1,0 +1,17 @@
+[
+  {
+    "pk": 1,
+    "model": "profiles.userprofile",
+    "fields": {
+      "user": 1,
+      "image_url": "https://raw.githubusercontent.com/Voggastur/fsf-project/master/media/poopy.jpg",
+      "default_full_name": "Mr Poopy",
+      "default_phone_number": "010101010",
+      "default_street_address": "Street 55",
+      "default_town_or_city": "Springfield",
+      "default_postcode": 19191,
+      "default_county": "Lichfield",
+      "default_country": "US"
+    }
+  }
+]

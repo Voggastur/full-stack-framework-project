@@ -1,5 +1,5 @@
 from django.db import models
-from profiles.models import UserProfile
+from django.contrib.auth.models import User
 
 
 class Category(models.Model):
@@ -29,3 +29,17 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Review(models.Model):
+    """ A model of Reviews, linked to Product and User """
+    reviewed_product = models.ForeignKey(
+        Product, on_delete=models.CASCADE, null=True)
+    created_by = models.ForeignKey(
+        User, on_delete=models.CASCADE, null=True, blank=True, related_name="product_reviews")
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+    header = models.CharField(max_length=100)
+    body = models.TextField(max_length=1000)
+
+    def __str__(self):
+        return self.header

@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extra_head %}
+<!-- EmailJS -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+<script type="text/javascript">
+		(function(){
+      emailjs.init('{{email_code}}');
+   })();
+</script>
+{% endblock %}
+{% block extra_title %}- Contact{% endblock %}
+
+{% block content %}
+
+<section class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="text-center font-weight-bold">Contact</h2>
+    </div>
+    <div class="col-6 offset-3">
+      <!-- Contact Form with EmailJS backend -->
+      <form onsubmit="return sendMail(this);">
+        <div class="form-group">
+          <h3 class="contact-heading">Get in touch</h3>
+          <input type="hidden" name="contact_number" />
+          <label for="name">Name</label>
+          <input
+            type="text"
+            name="name"
+            class="form-control"
+            id="name"
+            placeholder="Name"
+            required
+          />
+          <label for="email">Email address:</label>
+          <input
+            type="email"
+            name="email"
+            class="form-control"
+            id="email"
+            placeholder="JohnDoe@email.com"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="questions">Select the Nature of the Question</label>
+          <select class="form-control" name="questions" id="questions">
+            <option>General</option>
+            <option>Finance</option>
+            <option>Blueprints</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="description">Briefly on the subject matter</label>
+          <textarea
+            class="form-control"
+            name="description"
+            id="description"
+            rows="4"
+            max-length="240"
+            min-length="10"
+            required
+          ></textarea>
+          <button
+            type="submit"
+            value="Send"
+            class="btn btn-outline-black my-3"
+          >
+            Send
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+<!-- Script for EmailJS Backend -->
+<script type="text/javascript">
+  function clearInput() {
+    location.reload(false);
+  }
+
+  function sendMail(contactForm) {
+    contactForm.contact_number.value = (Math.random() * 100000) | 0;
+    emailjs
+      .send("gmail", "template_fs6yb3h", {
+        contact_number: "#ID" + contactForm.contact_number.value,
+        from_name: contactForm.name.value,
+        from_email: contactForm.email.value,
+        questions: contactForm.questions.value,
+        description: contactForm.description.value,
+      })
+      .then(
+        function (response) {
+          console.log("SUCCESS", response);
+        },
+        function (error) {
+          console.log("FAILED", error);
+        }
+      );
+    alert("Email has been sent!");
+    clearInput();
+    return false;
+  }
+</script>
+{% endblock %}

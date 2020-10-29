@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extra_title %}- Add Review{% endblock %}
+
+{% block content %}
+
+<div class="container">
+	<div class="row">
+		<div class="col-10 offset-1 my-20">
+			<div>
+				<h3>Write a Review</h3>
+			</div>
+			<div class="card-body">
+				<form action="{% url 'add_review' product.id %}" method="POST" class="form mb-2">
+					{% csrf_token %}
+					{{ reviewform }}
+					<div class="px-40">
+						<button class="btn btn-outline-black hvr-radial-out float-left" type="submit">Submit Review</button>
+						<button class="btn btn-outline-black hvr-radial-out float-right" onclick="window.location.href={% url 'products' %}">Cancel</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

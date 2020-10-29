@@ -6,12 +6,12 @@
 <div class="container-fluid">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-6">
-				<div class="product-image-container my-5">
-					<img class="card-img" src="{{ product.image_url }}" alt="{{ product.name }}"></img>
+			<div class="col-md-6 my-4 py-4 px-2">
+				<div class="m-0 p-0">
+					<img class="card-img-detail" src="{{ product.image_url }}" alt="{{ product.name }}"/>
 				</div>
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-6 my-4">
 				<div class="product-details-container mb-5 mt-md-5">
 					<p class="mb-0">{{ product.name }}</p>
 					<p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
@@ -34,7 +34,7 @@
 									<div class="input-group">
 										<div class="input-group-prepend">
 											<button
-                                              class="decrement-qty btn btn-gold rounded-0"
+                                              class="decrement-qty btn rounded-0"
                                               data-item_id="{{ product.id }}"
                                               id="decrement-qty_{{ product.id }}"
                                             >
@@ -69,7 +69,7 @@
 							</div>
 
 							<div class="col{% if s %}-12 mt-2{% endif %}">
-								<a href="{% url 'products' %}" class="btn btn-gold rounded-0 mt-5">
+								<a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 mt-5">
 									<span class="icon">
                                         <i class="fas fa-chevron-left"></i>
                                     </span>
@@ -91,6 +91,54 @@
 					</form>
 				</div>
 			</div>
+			{% if review %}
+			<div class="col-10 offset-1 pb-4">
+                <h2 class="text-center text-md-left mb-3">Reviews</h2>
+				<div class="review-card row">
+					<div class="col-2 d-none d-md-inline p-0">
+						<img alt="User picture" class="rounded-circle" height="100" width="100" src="{% if review.created_by.userprofile.image_url %}
+                        {{ review.created_by.userprofile.image_url }}{% else %}{{ default_user_image }}{% endif %}">
+                    </div>
+                    <div class="col-10 pl-5">
+                        <div class="blockquote">
+							<p class="ml-2 mb-2">{{review.header}}</p>
+							<p class=" ml-2 mb-2">{{review.body}}</p>
+							<p class=" ml-2 mb-1 font-italic">{% if review.created_by %}{{ review.created_by }}{% else %} Anonymous
+								User {% endif %}</p>
+						</div>
+						{% if review.created_by == request.user %}
+						<div class="button-wrapper">
+							<a class="btn btn-outline-black" href="{% url 'edit_review' review.id %}"
+								aria-label="edit button">Edit</a>
+							<a class="btn btn-outline-black" href="{% url 'delete_review' review.id %}"
+								aria-label="delete button">Delete</a>
+						</div>
+						{% endif %}
+                    </div>
+				</div>
+			</div>
+			{% else %}
+			<div class="col-10 offset-1 text-center">
+                <h2>Reviews</h2>
+				<div class="media py-20">
+					<div class="d-none d-md-inline">
+				    </div>
+					<div class="media-body">
+						<blockquote class="blockquote">
+							<p>There are no reviews yet <br> <a
+									href="{% url 'add_review' product.id %}"><span>Be the first to write one!</span></a>
+							</p>
+						</blockquote>
+					</div>
+				</div>
+			</div>
+			{% endif %}
+
+            {% if review.created_by == request.user %}
+			{% else %}
+			<a class="btn btn-outline-black m-4 d-block m-auto" href="{% url 'add_review' product.id %}">Add a review</a>
+			{% endif %}
+
 		</div>
 	</div>
 </div>

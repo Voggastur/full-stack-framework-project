@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extra_title %}- Add Product{% endblock %}
+
+{% block content %}
+<div class="container">
+	<div class="row">
+		<div class="col-12 col-md-6">
+			<form method="POST" action="{% url 'add_product' %}" class="form mb-2" enctype="multipart/form-data">
+				{% csrf_token %}
+				{% for field in form %}
+				{% if field.name != 'image' %}
+				{{ field | as_crispy_field }}
+				{% else %}
+				{{ field }}
+				{% endif %}
+				{% endfor %}
+				<div class="text-right">
+					<a class="btn btn-outline-black btn-black rounded-0 mb-5" href="{% url 'products' %}">Cancel</a>
+					<button class="btn btn-gold rounded-0 mb-5" type="submit">Add Product</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+<!-- Scripts -->
+{% block postloadjs %}
+{{ block.super }}
+<script>
+	$('#new-image').change(function() {
+            var file = $('#new-image')[0].files[0];
+            $('#filename').text(`Image will be set to: ${file.name}`);
+        });
+</script>
+{% endblock %}

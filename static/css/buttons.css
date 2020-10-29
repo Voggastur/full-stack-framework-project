@@ -21,28 +21,30 @@
   width: 100%;
   height: 150px;
   background-color: #fafafa;
-  -webkit-box-shadow: 0px 0px 25px 0px #fff;
-  -moz-box-shadow: 0px 0px 25px 0px #fff;
-  box-shadow: 0px 0px 25px 0px #fff;
+  -webkit-box-shadow: 0px 0px 20px 0px #fff;
+  -moz-box-shadow: 0px 0px 20px 0px #fff;
+  box-shadow: 0px 0px 20px 0px #fff;
   overflow: hidden;
   margin-bottom: 4px;
+  transition: all 500ms ease;
 }
 
 .small-card i {
   opacity: 0;
-  font-size: 1.8em;
+  font-size: 1.7em;
   color: burlywood;
-  text-shadow: 2px 2px #21162c;
+  text-shadow: 
+  1px 2px #000;
   top: 15px;
   will-change: transform;
-  -webkit-transform: scale(0.1);
-  transform: scale(0.1);
+  -webkit-transform: scale(0.05);
+  transform: scale(0.05);
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
 
 .small-card h2 {
-  z-index: 99;
+  z-index: 6;
   font-family: "Montferrat", sans-serif;
   position: absolute;
   bottom: 0;
@@ -79,9 +81,9 @@
   transition: all 0.5s ease;
 }
 
-.social {
+.flair {
   position: absolute;
-  left: 60px;
+  left: 50px;
   top: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -96,35 +98,29 @@
   border-radius: 80px;
 }
 
-.social i:nth-of-type(1) {
+.flair i:nth-of-type(1) {
   -webkit-transition-delay: 0.1s;
   transition-delay: 0.1s;
 }
 
-.social i:nth-of-type(2) {
+.flair i:nth-of-type(2) {
   -webkit-transition-delay: 0.2s;
   transition-delay: 0.2s;
 }
 
-.social i:nth-of-type(3) {
+.flair i:nth-of-type(3) {
   -webkit-transition-delay: 0.3s;
   transition-delay: 0.3s;
 }
 
-.social i:nth-of-type(4) {
+.flair i:nth-of-type(4) {
   -webkit-transition-delay: 0.4s;
   transition-delay: 0.4s;
 }
 
-.social i:nth-of-type(5) {
+.flair i:nth-of-type(5) {
   -webkit-transition-delay: 0.5s;
   transition-delay: 0.5s;
-}
-
-.small-card:hover i {
-  opacity: 1;
-  -webkit-transform: scale(1);
-  transform: scale(1);
 }
 
 .nav-button {
@@ -142,7 +138,18 @@
   transition: all 0.5s ease;
 }
 
+.small-card .nav-button {
+  background-color: #800080;
+}
+
+.small-card:hover i {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
 .small-card:hover .nav-button {
+  -webkit-transform: scale(28);
   transform: scale(28);
   opacity: 0;
 }
@@ -154,14 +161,20 @@
 
 .small-card:hover .pic {
   filter: grayscale(0);
+  -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
 
 .small-card:hover h2 {
-  text-shadow: 3px 3px #21162c;
+  text-shadow: 3px 3px #222;
   color: burlywood;
+  right:20%;
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
 }
 
-.small-card .nav-button {
-  background-color: #800080;
+.small-card:hover {
+  -webkit-box-shadow: 0px 0px 10px 0px #800080;
+  -moz-box-shadow: 0px 0px 10px 0px #800080;
+  box-shadow: 0px 0px 10px 0px #800080;
 }

@@ -1,43 +1,452 @@
-<img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
+# Africa Hab
 
-Welcome Voggastur,
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project.
+<img src="https://raw.githubusercontent.com/Voggastur/full-stack-framework-project/master/media/front.jpg" style="margin: 0, width:450px, height:350px;">
 
-## Gitpod Reminders
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+This website is my final project in the Code Institute Full Stack Development Course, and the goal is to present my knowledge accumulated so far.
+In particular Django Development modules introduced in the final stage of the course.
 
-`python3 -m http.server`
 
-A blue button should appear to click: *Make Public*,
+<hr>
 
-Another blue button should appear to click: *Open Browser*.
+## Table of Contents <a name="TableContents"></a>
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+1. [UX](#UX)
 
-A blue button should appear to click: *Make Public*,
+    I. [User stories](#UX1)
+    
+    II. [Wireframes](#UX2)
+    
+    III. [Development Progress](#UX3)
 
-Another blue button should appear to click: *Open Browser*.
+    IIII. [Business Goals](#UX4)
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the backend lessons.
+2. [Features](#Features)
+3. [Features for the future](#Features2)
+4. [Technologies used](#Technologies)
+5. [Testing](#Testing)
 
-## Updates Since The Instructional Video
+    I. [Validators](#Testing2)
+    
+    II. [Testing user stories](#Testing3)
 
-We continually tweak and adjust this template to help give you the best experience. Here are the updates since the original video was made:
+    III. [Manual Testing](#Testing4)
+    
+6. [Deployment](#Deployment)
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+    I. [How to run this project locally](#Deployment2)
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+    II. [How to clone this project locally](#Deployment2)
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+7. [Credits](#Credits)
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+<hr>
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+## 1. UX <a name="UX"></a>
 
---------
 
-Happy coding!
+I decided to build an e-commerce store for the sister of my wife who is quite handy making bags and clothes.
+I have mixed in some of her real content with bags, shirts and shoes found on the web.
+
+The admin will have the ability to manipulate store items, via CRUD functionality.
+
+There will also be a FAQ messageboard for interaction with users, the admin can delete questions he doesn't like and answer the one he likes.
+A Contact page will also be present for private concerns with email functionality in the backend via emailJS.
+
+Product Reviews will also be present for authenticated users, limit one review per product and user, however every product shall be able to hold more than 1 review from different users.
+
+User authentication checks happen frequently across the page so creating a User Profile is mandatory for most interactions except for browsing wares and FAQ pages.
+
+When testing payment I always used the VISA option:
+Card: 4242 4242 4242 4242
+
+Expiry date shall be in the future, although I never type a year more than 5 years into the future.
+CV2 can be any 3 numbers and the postcode I always matched with my delivery adress postcode.
+
+
+<a href="#TableContents">Back to Table of Contents</a>
+<hr>
+
+
+#### I. User Stories: <a name="UX1"></a>
+
+
+1. As a developer I want to showcase my abilities in full stack development
+
+2. As a developer I want to have a visibly inspiring project I can be proud of to showcase for potential employers
+
+3. As a customer I want to be able to browse products on the website
+
+4. As a customer I want to be able to see specific products in more detail
+
+5. As a customer I want to be able to write a review on a product
+
+6. As a customer I want to be able to buy things in the store by card
+
+7. As a customer I want to be able to contact the company about any issues
+
+8. As a customer I want to be able to visit a page for frequently asked questions which may hold some answers to my initial questions
+
+9. As a customer I want to be able to create a user profile to hold my previous order history
+
+10. As a customer I want to be able to visit the site on mobile, tablet or desktop
+
+11. As the admin I want to be able to login as admin to update content on the page, ranging from products, to FAQ posts and overlooking reviews for inappropriate posts.
+
+12. As a collaborator specializing in database modelling I want to see the database models in the repository and check for flaws in the Foreignkey relationships.
+
+13. As a site administrator, I want to be able to learn the ropes of the website easily by having clear access to the admin page,  
+and update the website by using the admin panel or admin buttons throughout the page.
+
+
+<a href="#TableContents">Back to Table of Contents</a>
+<hr>
+
+
+#### II. Wireframes: <a name="UX2"></a>
+
+
+* [Wireframes](wireframes/wireframes.pdf)
+
+* [Database Schema](wireframes/db_schema.pdf)
+
+
+Attached are 2 pdf files one for the database schema made in excel and one with several handdrawn pages of webpage layouts for different parts of the page.
+
+The wireframes stage is were I am usually stuck for days, every initial design seems lacklustre and lacking in style or functionality.
+After testing a few paths into what was actually possible within my scope of ability I had an easier time drawing up schemes for the different pages.
+
+The initial name for the project was Salomos Apparel, the biblical israelite king who is revered in Ethiopia as the alleged dynastic ancestor of the Ethiopian Solomononid kings  
+through his love with the Queen of Sheba. The last king in this bloodline that spans almost 3000 years was killed in a communist uprising in 1973,  
+however abrahamitic traditions and reverence of the past stays as a strong influence.
+
+However as I talked with Lidya the person I actually want to do this for, she already had a logotype and name of her brand - Africa Hab,  
+so I use that instead from that point. This explains the project name salomo.
+
+After some backbreaking work in the design process I believe that frontend design is not my specialty,
+however as I step into the midproject development I find myself really enjoying seeing backend code come to fruition and work as intended.
+
+I found it helpful to simply list the projects different django apps functionality and relation inbetween, to get an overview in the magnitude of complexity - one of the wireframe pages reflects this process.
+
+The database wireframe is implemented generally as planned aside from different fieldnames
+
+
+<a href="#TableContents">Back to Table of Contents</a>
+<hr>
+
+
+#### III. Development Process: <a name="UX3"></a>
+
+
+For this project I used the Boutique Ado project we did in the last stage of Code Institute as groundwork and I added the models;
+Review, Question and Answer.
+
+Userprofiles now have an image_url to show a little image next to their reviews, a default user image was taken from facebook to prefill this field.
+
+I foregone the FAQ accordion implementation since I want to show the answers directly upon viewing the page.
+Answers must be posted by an authenticated admin, but questions can be posted by any logged in user.
+This means that questions will be posted and then wait for an answer, until the admin inspects the page and inputs an answer,
+a default muted text explains that the question is waiting for a response from admin, until the admin adds an answer by clicking a button visible only to the admin.
+
+My initial plan was to have a landing site for presentation and products in another app, then I worked on a layout of showing products directly on the frontpage.
+In the end I implemented the former plan in any case, because of concerns with increasing complexity when implementing products with the home app.
+
+Nearing the end of my development I created two users for testing my features, Rick and Morty, with two images from the rick and morty series. Both Rick and Morty have left 2 reviews each on separate items.
+
+
+<a href="#TableContents">Back to Table of Contents</a>
+<hr>
+
+
+### IIII. Business Goals: <a name="UX4"></a>
+
+The business goals of Africa Hab are:
+
+I. To sell authentic homemade bags and dresses.
+II. To encourage Lidyas work in something she enjoys doing.
+
+
+<a href="#TableContents">Back to Table of Contents</a>
+<hr>
+
+
+## 2. Features <a name="Features"></a>
+
+
+I. The FAQ app is a messageboard where the admin can interact with the users by answering questions posted by users.  
+Preferably the admin can post some questions of his own to which many users have requested an answer
+
+II. User authentication is handled with django-allauth by handling login and signup,  
+additionally userprofiles are autocreated upon user registration.
+
+III. A review model was created for the product app for showing in detailed product view,  
+and the questions and answers models are in the FAQ app for use in faq.html.  
+Questions can be posted by any authenticated user, and will be publicly posted, answers must be posted by admin.
+
+IV. An authenticated user can add a review for any product, and he can edit or delete the review after posting it
+
+V. The Boutique Ado project that was created in the previous Code institute module is the groundwork of this page,  
+some apps that came along have survived the transition with little to no changes, such as the bag app and the checkout page,  
+which only needed some adaptation for links and changes to match changes in the user profile, which have some fields different from the boutique ado project.
+
+VI. A Contact Page with emailJS backend is implemented for contact with admin directly for different concerns.
+
+VII. A technically simple About page was added to provide some background on the people behind the scenes.
+
+VIII. Separated navigation buttons for product categories have been made into 4 large buttons below the fixed navbar,  
+some advanced styling was made for the purpose, otherwise the four categories would have been added to a simple dropdown menu in the regular navbar.
+
+IX. A general Shop button was added to navbar to provide for a non-contextual browsing of all products mixed.
+
+X. An admin button link was added to the navbar that shows only if logged in as admin.  
+I implemented this after I learned the trick {% url 'admin:index' %} which will show the admin index subpath.
+
+XI. I searched for good matching fonts on google, and found Merriweather and Montserrat, which look nice for my purpose.  
+Although I misspelled Montserrat for Montferrat several times during my development, even Merriweather sometimes got mixed up in memory as Merryweather.
+
+XII. Colors used in this web project are white #ffffff, black #000000, and a very light pink #f0d4e8.  
+For my buttons categories I had slight contrast issues so I settled with 'burlywood' #deb887 for overlying text and a  
+strong pink-purple #800080 for a hover effect on a button and a box-shadow.  
+In all my Code Institute projects since the beginning of learning css I have come to like the ease of using linear-gradients to add some easy transitions over the page,  
+on this website I use only a few linear-gradients to provide soft pink into new content sections of the page.
+
+XIII. The Africa Hab Logo was made in [Sketchpad](https://sketch.io/sketchpad/) and I use it in the left side of the navbar. It acts as a 'Home' button.
+
+
+<a href="#TableContents">Back to Table of Contents</a>
+<hr>
+
+
+## 3. Features for the future <a name="Features2"></a>
+
+I would like to implement rating for all the products, perhaps it could be as part of leaving a review.
+
+I would like to implement user authentication with social media such as facebook for easier authentication.
+
+
+<a href="#TableContents">Back to Table of Contents</a>
+<hr>
+
+
+## 4. Technologies Used <a name="Technologies"></a>
+
+
+HTML, CSS, JS & Python
+
+* General languages used
+
+
+Django 
+
+* Extensive Python Web framework.
+
+
+Bootstrap4
+
+* Frontend framework for structuring layout easily, with mobile-first responsive design and useful helper classes such as for margin/padding
+
+
+jQuery
+
+* JavaScript library for writing easier and shorter Javascript code, also required by Bootstrap js packages
+
+
+Gitpod
+
+* IDE for this project
+
+
+Github
+
+* Repository host during production up until last build deployed to Heroku
+
+
+Sqlite3
+
+* Database used during development with Django
+
+
+PostgreSQL
+
+* Relational database commissioned on Heroku
+
+
+Heroku
+
+* A cloud platform enabling Python run web projects
+
+
+Stripe
+
+* Used to handle payments on the website.
+
+
+https://validator.w3.org/
+
+* Validate Html code
+
+
+https://jigsaw.w3.org/css-validator/
+
+* Validate CSS code
+
+
+https://jshint.com/
+
+* Validate JavaScript
+
+
+https://django-extensions.readthedocs.io/en/latest/
+
+* Validate django templates for Jinga related errors.
+
+
+https://autoprefixer.github.io/
+
+* Autoprefix CSS code, important for cross-browser support
+
+
+http://pep8online.com/
+
+* Validate python code according to PEP8 standards
+
+
+https://aws.amazon.com/
+
+* AWS Bucket used to store static and media files
+
+
+https://fontawesome.com/
+
+* As far as I know the best icon library
+
+
+https://sketch.io/sketchpad/
+
+* For cropping and resizing images manually
+
+
+https://www.reduceimages.com/
+
+* Used for resizing images
+
+
+<a href="#TableContents">Back to Table of Contents</a>
+<hr>
+
+
+## 5. Testing <a name="Testing"></a>
+
+
+<a href="#TableContents">Back to Table of Contents</a>
+<hr>
+
+
+### I. Validating Testing: <a name="Testing2"></a>
+
+
+<a href="#TableContents">Back to Table of Contents</a>
+<hr>
+
+
+### II. Testing User Stories: <a name="Testing3"></a>
+
+
+<a href="#TableContents">Back to Table of Contents</a>
+<hr>
+
+
+### III. Manual Testing: <a name="Testing4"></a>
+
+
+<a href="#TableContents">Back to Table of Contents</a>
+<hr>
+
+
+## 6. Deployment <a name="Deployment"></a>
+
+
+<a href="#TableContents">Back to Table of Contents</a>
+<hr>
+
+
+### I. How to run this project locally <a name="Deployment2"></a>
+
+
+You will need to create a free account on AWS and set up an S3 bucket
+
+You will need to create a free account on Stripe
+
+Download the project from the github repository
+
+Install required python dependencies by typing in the git bash terminal:
+- pip3 -r requirements.txt
+
+Then type python3 manage.py runserver
+
+Create a file named .gitignore, and enter the following line into that file:
+env.py
+Save and Close .gitignore
+
+Then create file env.py and enter the following lines:
+os.environ["DJANGO_SECRET_KEY"] = "XXX"
+os.environ["AWS_ACCESS_KEY_ID"] = "XXX"
+os.environ["AWS_SECRET_ACCESS_KEY"] = "XXX"
+os.environ["AWS_STORAGE_BUCKET_NAME"] = "XXX"
+os.environ["STRIPE_PUBLIC_KEY"] = "XXX"
+os.environ["STRIPE_SECRET_KEY"] = "XXX"
+os.environ["STRIPE_WH_SECRET"] = "XXX"
+Save and Close env.py
+
+The "XXX" values above represents secret keys that needs to be extracted from your AWS and Stripe accounts,  
+and the Django secret key can be generated here: [Django Key Generator](#https://miniwebtool.com/django-secret-key-generator/),  
+unless you use the secret_key variable in settings.py generated upon the Django install procedure.
+
+Create superuser account for accessing database:
+python3 manage.py createsuperuser
+
+Type in a valid email, then type in username followed by the password two times,  
+the password should be at least 8 characters long, but can be overruled by forcing through a shorter password by clicking "y" on the followup question in the terminal,  
+creating it this way with a short password will only work in the git bash terminal and not by users signing up on the webpage.
+
+Type the following to prepare migrations according to the models
+python3 manage.py makemigrations
+
+Then type the following to create the tables in the database according to previously prepared migrations
+python3 manage.py migrate
+
+The app can now be run locally.
+
+
+<a href="#TableContents">Back to Table of Contents</a>
+<hr>
+
+
+### II. How to clone this project locally <a name="Deployment3"></a>
+
+
+1. Select the Repository in Github.
+2. Click the "Clone or download" button.
+3. Copy the web URL presented.
+4. Open your IDE, for example gitpod, and find the terminal.
+5. Change the directory to where you want to clone the repository too.
+6. Paste the Git URL https://github.com/Voggastur/full-stack-framework-project.git and press enter.
+
+
+<a href="#table-of-contents">Back to top</a>
+<hr>
+
+
+## 7. Credits <a name="Credits"></a>
+
+
+<a href="#TableContents">Back to Table of Contents</a>
+<hr>
+
+
+<img width="450" height="350" src="https://raw.githubusercontent.com/Voggastur/full-stack-framework-project/master/media/front.jpg">
+
+
+<hr>

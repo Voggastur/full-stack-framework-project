@@ -9,6 +9,7 @@ class QuestionAdmin(admin.ModelAdmin):
         'text',
         'created_at',
         'created_by',
+        'related_answer',
     )
 
 

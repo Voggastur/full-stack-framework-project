@@ -25,7 +25,7 @@ class Product(models.Model):
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
-    image = models.ImageField(null=True, blank=True)
+    image = models.ImageField(null=True, blank=True, default='noimage.png')
 
     def __str__(self):
         return self.name
@@ -34,9 +34,9 @@ class Product(models.Model):
 class Review(models.Model):
     """ A model of Reviews, linked to Product and User """
     reviewed_product = models.ForeignKey(
-        Product, on_delete=models.CASCADE, null=True)
+        Product, on_delete=models.CASCADE)
     created_by = models.ForeignKey(
-        User, on_delete=models.CASCADE, null=True, blank=True, related_name="product_reviews")
+        User, null=True, blank=True, on_delete=models.CASCADE, related_name="product_reviews")
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     header = models.CharField(max_length=100)
     body = models.TextField(max_length=1000)

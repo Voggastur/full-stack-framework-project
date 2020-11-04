@@ -1,5 +1,5 @@
 """
-WSGI config for boutique project.
+WSGI config for salomo project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 

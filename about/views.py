@@ -14,8 +14,8 @@ def contact(request):
 
     # I realized the code is still visible in chrome dev tools,
     # since Javascript is client-side, but I keep this in order
-    #  to show that I understand this at least, and for further development.
-    # I aim to use django email instead, similar to the checkout implementation
+    # to show that I understand this at least, and for further development.
+    # I aim to look into using the django sendmail function instead
 
     email_code = 'user_SNJGyOEpTaT5O7pC1cJUM'
 

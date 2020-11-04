@@ -66,20 +66,21 @@ def all_products(request):
 
 
 def product_detail(request, product_id):
-    """ A view to show individual products and test against reviews """
+    """ A view to show individual products and test user against reviews """
 
     product = get_object_or_404(Product, pk=product_id)
+    # default image for empty profile picture in review section
     default_user_image = 'https://raw.githubusercontent.com/Voggastur/fsf-project/master/media/default_user.jpg'
 
     # If review matches product id I want to import the review to the template
     if Review.objects.filter(reviewed_product=product_id).exists():
-        review = get_object_or_404(Review, reviewed_product=product_id)
+        reviews = Review.objects.filter(reviewed_product=product_id)
     else:
-        review = None
+        reviews = None
 
     context = {
         'product': product,
-        'review': review,
+        'reviews': reviews,
         'default_user_image': default_user_image,
     }
 
@@ -132,16 +133,15 @@ def edit_review(request, review_id):
     """ View to edit an existing review """
 
     review = get_object_or_404(Review, created_by_id=request.user, pk=review_id)
-    user = get_object_or_404(User, username=request.user)
+    # user = get_object_or_404(User, username=request.user)
     reviewform = ReviewForm(instance=review)
 
     if request.method == "POST":
-        reviewform = ReviewForm(request.POST, instance=user)
+        reviewform = ReviewForm(request.POST, instance=review)
         if reviewform.is_valid():
             reviewform.save()
-            messages.success(request,
-                             f'Review for {review.reviewed_product} has been updated!')
-            return redirect('products')
+            messages.success(request, f'Review for {review.reviewed_product} has been updated!')
+            return redirect(reverse('product_detail', args=[review.reviewed_product.id]))
 
         else:
             messages.error(request,
@@ -163,7 +163,7 @@ def delete_review(request, review_id):
     review.delete()
     messages.success(request, 'Review has been deleted.')
 
-    return redirect('products')
+    return redirect(reverse('product_detail', args=[review.reviewed_product.id]))
 
 
 @login_required

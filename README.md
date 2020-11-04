@@ -379,7 +379,7 @@ I would be redirected to the FAQ page with only Ricks question remaining.
 <hr>
 
 
-### I. Validating Testing: <a name="Testing2"></a>
+### I. Validators: <a name="Testing2"></a>
 
 
 I have not written any automated tests for this project, however I have done a range of validation checks on different parts of the project

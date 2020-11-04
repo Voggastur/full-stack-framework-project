@@ -524,14 +524,14 @@ In the settings tab I clicked reveal config vars and entered the following varia
 * EMAIL_HOST_USER	"the connected email"
 * USE_AWS "True"
 
-A requirements.txt file was created to let Heroku know the python dependencies needed to deploy the project
-I typed the following in git bash terminal
-pip3 freeze > requirements.txt
+A requirements.txt file was created to let Heroku know the python dependencies needed to run the project
+Typed the following in git bash terminal
+pip3 freeze --local > requirements.txt
 
 Then I created a Procfile and entered the following in it
 web: gunicorn salomo.wsgi:application
 
-Make migrations by typing
+Prepare models for migrations by typing
 python3 manage.py makemigrations
 
 Create tables in database by typing
@@ -540,14 +540,14 @@ python3 manage.py migrate
 Then I went to the deploy tab in heroku and connected to my github repository,  
 then I selected enable automatic deploys in the automatic deployment section, and made sure master branch was selected.
 
-And then for the final time I typed
+And then for the final time in the git bash terminal I typed
 git push
 which pushed the code to heroku thanks to the above automated deploy setting in heroku.
 
 In the bottom of the build view on heroku, the link for the deployed website can be found,  
 I clicked the link and could see the deployed website on heroku.
 
-Deploy finished.
+Deployment finished.
 
 
 <a href="#TableContents">Back to Table of Contents</a>
@@ -609,11 +609,11 @@ The app can now be run locally.
 ### II. How to clone this project locally <a name="Deployment3"></a>
 
 
-1. Select the Repository in Github.
+1. Select the Github Repository of this project.
 2. Click the "Clone or download" button.
 3. Copy the web URL presented.
-4. Open your IDE, for example gitpod, and find the terminal.
-5. Change the directory to where you want to clone the repository too.
+4. Open your IDE, and open the terminal.
+5. use cd to change the directory to where you want to clone the repository in.
 6. Paste the Git URL https://github.com/Voggastur/full-stack-framework-project.git and press enter.
 
 

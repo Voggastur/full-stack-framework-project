@@ -46,9 +46,11 @@
                         <p class="text-left">Posted {{ question.related_answer.created_at }}</p>
                         <!-- If user is admin, edit and delete buttons for this answer are visible -->
                         {% if request.user.is_superuser %}
-                        <p class="button-wrapper-p">Admin Controls</p>
-                        <button class="btn btn-outline-black" href="{% url 'edit_answer' question.related_answer.id %}">Edit Answer</button>
-                        <a class="btn btn-black" href="{% url 'delete_answer' question.related_answer.id %}">Delete Answer</a>
+                        <div class="button-wrapper">
+                            <p class="button-wrapper-p">Admin Controls</p>
+                            <button class="btn btn-outline-black" href="{% url 'edit_answer' question.related_answer.id %}">Edit Answer</button>
+                            <a class="btn btn-black" href="{% url 'delete_answer' question.related_answer.id %}">Delete Answer</a>
+                        </div>
                         {% endif %}
                     </div>
                     {% else %}
@@ -61,7 +63,6 @@
                             <p class="button-wrapper-p">Admin Controls</p>
                             <!-- Button for 'add_answer' or delete_question for easy admin access -->
                             <a class="btn btn-outline-black" href="{% url 'add_answer' question.id %}">Add an answer</a>
-                            <a class="btn btn-black" href="{% url 'delete_question' question.id %}">Delete Question</a>
                         </div>
                         {% endif %}
                     </div>

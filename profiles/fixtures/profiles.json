@@ -14,5 +14,37 @@
       "default_country": "US",
       "image": "meeseeks.jpeg"
     }
+  },
+  {
+    "pk": 2,
+    "model": "profiles.userprofile",
+    "fields": {
+      "user": 2,
+      "default_full_name": "Rick Smith",
+      "default_phone_number": "1001011101",
+      "default_street_address1": "Street 515",
+      "default_street_address2": "",
+      "default_town_or_city": "Lichfield",
+      "default_postcode": 91919,
+      "default_county": "Idaho",
+      "default_country": "US",
+      "image": "rick_W1JV4dH.jpg"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "profiles.userprofile",
+    "fields": {
+      "user": 3,
+      "default_full_name": "Morty Smith",
+      "default_phone_number": "00110111001",
+      "default_street_address1": "Street 51",
+      "default_street_address2": "",
+      "default_town_or_city": "Temple",
+      "default_postcode": 45454,
+      "default_county": "Vermont",
+      "default_country": "US",
+      "image": "morty_UMpeORr.jpg"
+    }
   }
 ]

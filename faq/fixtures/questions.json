@@ -3,16 +3,24 @@
     "pk": 1,
     "model": "faq.question",
     "fields": {
-      "text": "How fast can you deliver a dress to London UK?",
-      "created_by": "rick"
+      "text": "Can you make a dress with changes according to a customers wish?",
+      "created_by": 2
     }
   },
   {
     "pk": 2,
     "model": "faq.question",
     "fields": {
-      "text": "What materials do you use for production?",
-      "created_by": "morty"
+      "text": "What materials do you use in production?",
+      "created_by": 3
+    }
+  },
+  {
+    "pk": 3,
+    "model": "faq.question",
+    "fields": {
+      "text": "How quickly can you deliver to London UK?",
+      "created_by": 2
     }
   }
 ]

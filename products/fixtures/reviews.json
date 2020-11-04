@@ -23,10 +23,20 @@
     "pk": 3,
     "model": "products.review",
     "fields": {
-      "header": "Amazing Wedding Jewelry",
-      "body": "Ordered the variant 3 wedding jewelry and it looks amazing, it looks even better in real life, like royal accessory, truly pleased.",
+      "header": "Great look",
+      "body": "The shoes are amazing, everybody is asking me where did I get it from, and I am truly pleased.",
       "reviewed_product": 11,
       "created_by": 2
+    }
+  },
+  {
+    "pk": 4,
+    "model": "products.review",
+    "fields": {
+      "header": "A hard fit",
+      "body": "I ordered these hoping to fit my feet, and it's a real tight fit I don't think it's correctly manufactured",
+      "reviewed_product": 11,
+      "created_by": 3
     }
   }
 ]

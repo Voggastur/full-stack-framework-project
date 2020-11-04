@@ -4,11 +4,11 @@
     "model": "products.product",
     "fields": {
       "sku": "1",
-      "name": "Caledonia Handmade Womens Bag",
+      "name": "Antiochia Handmade Womens Bag",
       "description": "Exceptional bag in worked leather with straps and decor of african art.",
       "price": 79.99,
       "category": 1,
-      "image_url": "https://raw.githubusercontent.com/Voggastur/full-stack-framework-project/master/media/bag1.jpg"
+      "image": "bag1.jpg"
     }
   },
   {
@@ -20,7 +20,7 @@
       "description": "A nice bag for a stroll on the streets of Paris.",
       "price": 64.49,
       "category": 1,
-      "image_url": "https://raw.githubusercontent.com/Voggastur/full-stack-framework-project/master/media/bag2.jpg"
+      "image": "bag2.jpg"
     }
   },
   {
@@ -32,7 +32,7 @@
       "description": "Handmade bag in cloth and nylon with buttons imported from Austria's famous Hansen Fashion.",
       "price": 53.99,
       "category": 1,
-      "image_url": "https://raw.githubusercontent.com/Voggastur/full-stack-framework-project/master/media/bag3.jpg"
+      "image": "bag3.jpg"
     }
   },
   {
@@ -40,11 +40,11 @@
     "model": "products.product",
     "fields": {
       "sku": "4",
-      "name": "Hercynia Womens Bag",
+      "name": "Amazon Womens Bag",
       "description": "Modern bag made with much love.",
       "price": 59.99,
       "category": 1,
-      "image_url": "https://raw.githubusercontent.com/Voggastur/full-stack-framework-project/master/media/bag4.jpg"
+      "image": "bag4.jpg"
     }
   },
   {
@@ -56,7 +56,7 @@
       "description": "The elegant 5-star Velvet Satin Dress, featuring an embroidered and flanged trim.",
       "price": 99.99,
       "category": 2,
-      "image_url": "https://raw.githubusercontent.com/Voggastur/full-stack-framework-project/master/media/dress1.png"
+      "image": "dress1.jpg"
     }
   },
   {
@@ -64,11 +64,11 @@
     "model": "products.product",
     "fields": {
       "sku": "6",
-      "name": "Ladies Shirt",
+      "name": "Ladies Elegant Shirt",
       "description": "Durable embroidered womens shirt for a hot summer day.",
       "price": 129.99,
       "category": 2,
-      "image_url": "https://raw.githubusercontent.com/Voggastur/full-stack-framework-project/master/media/shirt2.png"
+      "image": "shirt2.jpg"
     }
   },
   {
@@ -80,7 +80,7 @@
       "description": "Elegant womens shirt with a radiant glow",
       "price": 129.99,
       "category": 2,
-      "image_url": "https://raw.githubusercontent.com/Voggastur/full-stack-framework-project/master/media/shirt3.png"
+      "image": "shirt3.jpg"
     }
   },
   {
@@ -92,7 +92,7 @@
       "description": "Elegant homemade shirt with embroidered patterns.",
       "price": 129.99,
       "category": 2,
-      "image_url": "https://raw.githubusercontent.com/Voggastur/full-stack-framework-project/master/media/shirt4.png"
+      "image": "shirt4.jpg"
     }
   },
   {
@@ -100,11 +100,11 @@
     "model": "products.product",
     "fields": {
       "sku": "9",
-      "name": "King Salomos Wedding Jewelry Variant 1",
-      "description": "Classical east african wedding jewelry variant 1",
-      "price": 58.99,
+      "name": "Classic Silver pumps",
+      "description": "Fashionable pumps for the grand gala",
+      "price": 59.99,
       "category": 3,
-      "image_url": "https://raw.githubusercontent.com/Voggastur/full-stack-framework-project/master/media/jewelry.jpg"
+      "image": "shoe1.jpg"
     }
   },
   {
@@ -112,11 +112,11 @@
     "model": "products.product",
     "fields": {
       "sku": "10",
-      "name": "King Salomos Wedding Jewelry Variant 2",
-      "description": "Classical east african wedding jewelry variant 2",
-      "price": 58.99,
+      "name": "Classic Scarlet Pumps",
+      "description": "Classic pumps for the showstopper look",
+      "price": 59.99,
       "category": 3,
-      "image_url": "https://raw.githubusercontent.com/Voggastur/full-stack-framework-project/master/media/jewelry2.jpg"
+      "image": "shoe2.jpg"
     }
   },
   {
@@ -124,11 +124,11 @@
     "model": "products.product",
     "fields": {
       "sku": "11",
-      "name": "King Salomos Wedding Jewelry Variant 3",
-      "description": "Classical east african wedding jewelry variant 3",
-      "price": 58.99,
+      "name": "Valved Crayola Pumps",
+      "description": "Modern valved crayola pumps",
+      "price": 49.99,
       "category": 3,
-      "image_url": "https://raw.githubusercontent.com/Voggastur/full-stack-framework-project/master/media/jewelry3.jpg"
+      "image": "shoe3.jpg"
     }
   },
   {
@@ -136,11 +136,11 @@
     "model": "products.product",
     "fields": {
       "sku": "12",
-      "name": "King Salomos Wedding Jewelry Variant 4",
-      "description": "Classical east african wedding jewelry variant 4",
-      "price": 58.99,
+      "name": "Chestnut pumps",
+      "description": "A modern shoe for a new age",
+      "price": 69.99,
       "category": 3,
-      "image_url": "https://raw.githubusercontent.com/Voggastur/full-stack-framework-project/master/media/jewerly4.jpg"
+      "image": "shoe4.jpg"
     }
   },
   {
@@ -149,10 +149,10 @@
     "fields": {
       "sku": "13",
       "name": "Colored stone earrings",
-      "description": "Cut from granite of the ancient city of Axum, colored with african pastel art, a showcase in style.",
+      "description": "Cut from stone near the old city of Axum, colored with african pastel art, a showcase in axumite style.",
       "price": 12.99,
       "category": 4,
-      "image_url": "https://raw.githubusercontent.com/Voggastur/full-stack-framework-project/master/media/earrings1.jpg"
+      "image": "earrings1.jpg"
     }
   },
   {
@@ -164,7 +164,7 @@
       "description": "Simply Elegance.",
       "price": 21.99,
       "category": 4,
-      "image_url": "https://raw.githubusercontent.com/Voggastur/full-stack-framework-project/master/media/earrings2.jpg"
+      "image": "earrings2.jpg"
     }
   },
   {
@@ -173,10 +173,10 @@
     "fields": {
       "sku": "15",
       "name": "Kunta Earrings",
-      "description": "Tribal Kunta earrings made with much love",
+      "description": "Tribal Kunta earrings made with much pride",
       "price": 8.99,
       "category": 4,
-      "image_url": "https://raw.githubusercontent.com/Voggastur/full-stack-framework-project/master/media/earrings3.jpg"
+      "image": "earrings3.jpg"
     }
   },
   {
@@ -188,7 +188,7 @@
       "description": "An exhibition in contrast, these simple but elegant earrings carry flair.",
       "price": 5.99,
       "category": 4,
-      "image_url": "https://raw.githubusercontent.com/Voggastur/full-stack-framework-project/master/media/earrings4.jpg"
+      "image": "earrings4.jpg"
     }
   }
 ]

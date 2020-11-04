@@ -19,8 +19,8 @@
     "pk": 3,
     "model": "products.category",
     "fields": {
-      "name": "jewelry",
-      "friendly_name": "Jewelry"
+      "name": "shoes",
+      "friendly_name": "Shoes"
     }
   },
   {

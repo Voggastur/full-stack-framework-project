@@ -40,8 +40,8 @@
                         <p class="text-left">Posted {{ question.related_answer.created_at }}</p>
                         <!-- If user is admin, edit and delete buttons for this answer are visible -->
                         {% if request.user.is_superuser %}
-                        <a class="btn btn-outline-black" href="{% url 'edit_answer' answer.id %}">Edit Answer</a>
-                        <a class="btn btn-outline-black" href="{% url 'delete_answer' answer.id %}">Delete Answer</a>
+                        <a class="btn btn-outline-black" href="{% url 'edit_answer' question.related_answer.id %}">Edit Answer</a>
+                        <a class="btn btn-outline-black" href="{% url 'delete_answer' question.related_answer.id %}">Delete Answer</a>
                         {% endif %}
                     </div>
                     {% else %}

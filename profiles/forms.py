@@ -1,4 +1,5 @@
 from django import forms
+from products.widgets import CustomClearableFileInput
 from .models import UserProfile
 
 
@@ -7,6 +8,9 @@ class UserProfileForm(forms.ModelForm):
         model = UserProfile
         exclude = ('user',)
 
+    image = forms.ImageField(
+        label='Image', required=False, widget=CustomClearableFileInput)
+
     def __init__(self, *args, **kwargs):
         """
         Add placeholders and classes, remove auto-generated
@@ -14,22 +18,24 @@ class UserProfileForm(forms.ModelForm):
         """
         super().__init__(*args, **kwargs)
         placeholders = {
-            'image_url': 'Image URL',
             'default_full_name': 'Full Name',
             'default_phone_number': 'Phone Number',
             'default_postcode': 'Postal Code',
             'default_town_or_city': 'Town or City',
-            'default_street_address': 'Street Address',
+            'default_street_address1': 'Street Address 1',
+            'default_street_address2': 'Street Address 2',
             'default_county': 'County, State or Locality'
         }
+        self.fields['default_full_name'].widget.attrs['autofocus'] = True
+        self.fields['image'].widget.attrs['class'] = 'rounded-circle'
 
-        self.fields['default_phone_number'].widget.attrs['autofocus'] = True
         for field in self.fields:
             if field != 'default_country':
-                if self.fields[field].required:
-                    placeholder = f'{placeholders[field]} *'
-                else:
-                    placeholder = placeholders[field]
-                self.fields[field].widget.attrs['placeholder'] = placeholder
+                if field != 'image':
+                    if self.fields[field].required:
+                        placeholder = f'{placeholders[field]} *'
+                    else:
+                        placeholder = placeholders[field]
+                    self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = 'border-black rounded-0 profile-form-input'
             self.fields[field].label = False

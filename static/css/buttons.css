@@ -1,3 +1,5 @@
+/* Category Buttons Styling */
+
 .button-container {
   margin: 0;
   background-color: #f0d4e8;
@@ -45,7 +47,7 @@
 
 .small-card h2 {
   z-index: 6;
-  font-family: "Montferrat", sans-serif;
+  font-family: "Montserrat";
   position: absolute;
   bottom: 0;
   right: 15%;
@@ -77,7 +79,7 @@
   height: 100%;
   object-fit: cover;
   background-size: 100% 100%;
-  filter: grayscale(100%);
+  filter: grayscale(80%);
   transition: all 0.5s ease;
 }
 

@@ -83,7 +83,7 @@ def edit_question(request, question_id):
 def delete_question(request, question_id):
     """ Delete a question """
 
-    question = get_object_or_404(Question, created_by=request.user, id=question_id)
+    question = get_object_or_404(Question, id=question_id)
     question.delete()
     messages.success(request, 'Question has been deleted.')
 

@@ -7,6 +7,6 @@ urlpatterns = [
     path('edit/<int:question_id>/', views.edit_question, name='edit_question'),
     path('delete/<int:question_id>/', views.delete_question, name='delete_question'),
     path('add_answer/<int:question_id>/', views.add_answer, name='add_answer'),
-    path('edit/<int:answer_id>/', views.edit_answer, name='edit_answer'),
-    path('delete/<int:answer_id>/', views.delete_answer, name='delete_answer'),
+    path('edit_answer/<int:answer_id>/', views.edit_answer, name='edit_answer'),
+    path('delete_answer/<int:answer_id>/', views.delete_answer, name='delete_answer'),
 ]

@@ -8,32 +8,36 @@
 		<div class="row">
 			<div class="col-md-6 my-4 py-4 px-2">
 				<div class="m-0 p-0">
-					<img class="card-img-detail" src="{{ product.image_url }}" alt="{{ product.name }}"/>
+					{% if product.image.url %}
+					<img class="card-img-detail" src="{{ product.image.url }}" alt="{{ product.name }}">
+                    {% else %}
+					<img class="card-img-detail" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                    {% endif %}
 				</div>
-			</div>
-			<div class="col-md-6 my-4">
-				<div class="product-details-container mb-5 mt-md-5">
-					<p class="mb-0">{{ product.name }}</p>
-					<p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
-					{% if product.category %}
-					<p class="small mt-1 mb-0">
-						<a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
-							<i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
-						</a>
-					</p>
-					{% endif %}
-					<p class="mt-3">{{ product.description }}</p>
-					<!-- Product quantity form -->
-					<form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
-						{% csrf_token %}
-						<div class="form-row">
-							{% with product.has_sizes as s %}
-							<div class="col-12">
-								<p class="mt-3"><strong>Quantity:</strong></p>
-								<div class="form-group w-50">
-									<div class="input-group">
-										<div class="input-group-prepend">
-											<button
+				</div>
+				<div class="col-md-6 my-4">
+					<div class="product-details-container mb-5 mt-md-5">
+						<p class="mb-0">{{ product.name }}</p>
+						<p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
+						{% if product.category %}
+						<p class="small mt-1 mb-0">
+							<a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
+								<i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
+							</a>
+						</p>
+						{% endif %}
+						<p class="mt-3">{{ product.description }}</p>
+						<!-- Product quantity form -->
+						<form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
+							{% csrf_token %}
+							<div class="form-row">
+								{% with product.has_sizes as s %}
+								<div class="col-12">
+									<p class="mt-3"><strong>Quantity:</strong></p>
+									<div class="form-group w-50">
+										<div class="input-group">
+											<div class="input-group-prepend">
+												<button
                                               class="decrement-qty btn rounded-0"
                                               data-item_id="{{ product.id }}"
                                               id="decrement-qty_{{ product.id }}"
@@ -42,8 +46,8 @@
                                                     <i class="fas fa-minus"></i>
                                                 </span>
                                             </button>
-										</div>
-										<input
+											</div>
+											<input
                                         class="form-control qty_input"
                                         type="number"
                                         name="quantity"
@@ -53,8 +57,8 @@
                                         data-item_id="{{ product.id }}"
                                         id="id_qty_{{ product.id }}"
                                         />
-										<div class="input-group-append">
-											<button
+											<div class="input-group-append">
+												<button
                                               class="increment-qty btn btn-black rounded-0"
                                               data-item_id="{{ product.id }}"
                                               id="increment-qty_{{ product.id }}"
@@ -63,89 +67,89 @@
                                                     <i class="fas fa-plus"></i>
                                                 </span>
                                             </button>
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
 
-							<div class="col{% if s %}-12 mt-2{% endif %}">
-								<a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 mt-5">
-									<span class="icon">
+								<div class="col{% if s %}-12 mt-2{% endif %}">
+									<a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 mt-5">
+										<span class="icon">
                                         <i class="fas fa-chevron-left"></i>
                                     </span>
-									<span class="text-uppercase">Keep Shopping</span>
-								</a>
-								<input
+										<span class="text-uppercase">Keep Shopping</span>
+									</a>
+									<input
                                     type="submit"
                                     class="btn btn-black rounded-0 text-uppercase mt-5"
                                     value="Add to Bag"
                                   />
                                 </div>
-								<input
+									<input
                                   type="hidden"
                                   name="redirect_url"
                                   value="{{ request.path }}"
                                 />
                                 {% endwith %}
                             </div>
-					</form>
-				</div>
-			</div>
-			{% if review %}
-			<div class="col-10 offset-1 pb-4">
-                <h2 class="text-center text-md-left mb-3">Reviews</h2>
-				<div class="review-card row">
-					<div class="col-2 d-none d-md-inline p-0">
-						<img alt="User picture" class="rounded-circle" height="100" width="100" src="{% if review.created_by.userprofile.image_url %}
-                        {{ review.created_by.userprofile.image_url }}{% else %}{{ default_user_image }}{% endif %}">
-                    </div>
-                    <div class="col-10 pl-5">
-                        <div class="blockquote">
-							<p class="ml-2 mb-2">{{review.header}}</p>
-							<p class=" ml-2 mb-2">{{review.body}}</p>
-							<p class=" ml-2 mb-1 font-italic">{% if review.created_by %}{{ review.created_by }}{% else %} Anonymous
-								User {% endif %}</p>
-						</div>
-						{% if review.created_by == request.user %}
-						<div class="button-wrapper">
-							<a class="btn btn-outline-black" href="{% url 'edit_review' review.id %}"
-								aria-label="edit button">Edit</a>
-							<a class="btn btn-outline-black" href="{% url 'delete_review' review.id %}"
-								aria-label="delete button">Delete</a>
-						</div>
-						{% endif %}
-                    </div>
-				</div>
-			</div>
-			{% else %}
-			<div class="col-10 offset-1 text-center">
-                <h2>Reviews</h2>
-				<div class="media py-20">
-					<div class="d-none d-md-inline">
-				    </div>
-					<div class="media-body">
-						<blockquote class="blockquote">
-							<p>There are no reviews yet <br> <a
-									href="{% url 'add_review' product.id %}"><span>Be the first to write one!</span></a>
-							</p>
-						</blockquote>
+						</form>
 					</div>
 				</div>
+				<div class="col-12 my-5">
+					<h2 class="text-center">Reviews</h2>
+				</div>
+				<hr>
+				{% if reviews %}
+				{% for review in reviews %}
+				<div class="col-10 offset-1 pb-4">
+					<div class="review-card row">
+						<div class="col-2 d-none d-md-inline p-0">
+							<img alt="User picture" class="rounded-circle" height="100" width="100" src="{% if review.created_by.userprofile.image.url %}
+                            {{ review.created_by.userprofile.image.url }}{% else %}{{ default_user_image }}{% endif %}">
+                            <!-- If userprofile lacks image, use default image defined in the view -->
+                        </div>
+							<div class="col-10 pl-5">
+								<div class="blockquote">
+									<p class="ml-2 mb-2">{{review.header}}</p>
+									<p class=" ml-2 mb-2">{{review.body}}</p>
+									<p class=" ml-2 mb-1 font-italic">
+										{% if review.created_by %}{{ review.created_by }}{% else %} Guest
+										User {% endif %}</p>
+								</div>
+								{% if review.created_by == request.user %}
+								<div class="button-wrapper">
+									<a class="btn btn-outline-black" href="{% url 'edit_review' review.id %}"
+										aria-label="edit button">Edit</a>
+									<a class="btn btn-outline-black" href="{% url 'delete_review' review.id %}"
+										aria-label="delete button">Delete</a>
+								</div>
+								{% endif %}
+							</div>
+						</div>
+						<hr>
+					</div>
+					{% endfor %}
+					{% else %}
+					<div class="col-10 offset-1">
+						<div class="media">
+							<div class="media-body">
+								<blockquote class="blockquote">
+									<p class="text-center">There are no reviews yet<br>
+                                    Be the first to write one!</p>
+								</blockquote>
+							</div>
+						</div>
+						<hr>
+					</div>
+					{% endif %}
+					<a class="btn btn-outline-black m-4 d-block m-auto" href="{% url 'add_review' product.id %}">Add a review</a>
+				</div>
 			</div>
-			{% endif %}
-
-            {% if review.created_by == request.user %}
-			{% else %}
-			<a class="btn btn-outline-black m-4 d-block m-auto" href="{% url 'add_review' product.id %}">Add a review</a>
-			{% endif %}
-
 		</div>
-	</div>
-</div>
 
-	{% endblock content %}
+		{% endblock content %}
 
-	{% block postloadjs %}
-	{{ block.super }}
-	{% include 'products/includes/quantity_input_script.html' %}
-	{% endblock %}
+		{% block postloadjs %}
+		{{ block.super }}
+		{% include 'products/includes/quantity_input_script.html' %}
+		{% endblock %}

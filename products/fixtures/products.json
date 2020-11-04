@@ -56,7 +56,7 @@
       "description": "The elegant 5-star Velvet Satin Dress, featuring an embroidered and flanged trim.",
       "price": 99.99,
       "category": 2,
-      "image": "dress1.jpg"
+      "image": "apparel1.jpg"
     }
   },
   {
@@ -68,7 +68,7 @@
       "description": "Durable embroidered womens shirt for a hot summer day.",
       "price": 129.99,
       "category": 2,
-      "image": "shirt2.jpg"
+      "image": "apparel2.jpg"
     }
   },
   {
@@ -80,7 +80,7 @@
       "description": "Elegant womens shirt with a radiant glow",
       "price": 129.99,
       "category": 2,
-      "image": "shirt3.jpg"
+      "image": "apparel3.jpg"
     }
   },
   {
@@ -92,7 +92,7 @@
       "description": "Elegant homemade shirt with embroidered patterns.",
       "price": 129.99,
       "category": 2,
-      "image": "shirt4.jpg"
+      "image": "apparel4.jpg"
     }
   },
   {

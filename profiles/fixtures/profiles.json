@@ -12,7 +12,7 @@
       "default_postcode": 19191,
       "default_county": "Missouri",
       "default_country": "US",
-      "image": "https://raw.githubusercontent.com/Voggastur/full-stack-framework-project/master/media/meeseeks.jpeg"
+      "image": "meeseeks.jpeg"
     }
   }
 ]

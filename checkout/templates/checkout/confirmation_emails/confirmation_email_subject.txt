@@ -1,1 +1,1 @@
-Africa Hab Apparel Confirmation for Order Number {{ order.order_number }}
+Africa Hab Confirmation for Order Number {{ order.order_number }}

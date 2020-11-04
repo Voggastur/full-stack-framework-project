@@ -1,3 +1,4 @@
+
 # Africa Hab
 
 
@@ -153,7 +154,7 @@ a default muted text explains that the question is waiting for a response from a
 My initial plan was to have a landing site for presentation and products in another app, then I worked on a layout of showing products directly on the frontpage.
 In the end I implemented the former plan in any case, because of concerns with increasing complexity when implementing products with the home app.
 
-Nearing the end of my development I created two users for testing my features, Rick and Morty, with two images from the rick and morty series. Both Rick and Morty have left 2 reviews each on separate items.
+Nearing the end of my development I created two users for testing my features, Rick and Morty, with two images from the rick and morty tv series. Both Rick and Morty have left 2 reviews each.
 
 
 <a href="#TableContents">Back to Table of Contents</a>
@@ -191,9 +192,9 @@ V. The Boutique Ado project that was created in the previous Code institute modu
 some apps that came along have survived the transition with little to no changes, such as the bag app and the checkout page,  
 which only needed some adaptation for links and changes to match changes in the user profile, which have some fields different from the boutique ado project.
 
-VI. A Contact Page with emailJS backend is implemented for contact with admin directly for different concerns.
+VI. A Contact Page is with emailJS backend is implemented for contact with admin directly for different concerns.
 
-VII. A technically simple About page was added to provide some background on the people behind the scenes.
+VII. A technically simple About page was added to provide some background on the people behind the page.
 
 VIII. Separated navigation buttons for product categories have been made into 4 large buttons below the fixed navbar,  
 some advanced styling was made for the purpose, otherwise the four categories would have been added to a simple dropdown menu in the regular navbar.
@@ -214,6 +215,8 @@ on this website I use only a few linear-gradients to provide soft pink into new 
 
 XIII. The Africa Hab Logo was made in [Sketchpad](https://sketch.io/sketchpad/) and I use it in the left side of the navbar. It acts as a 'Home' button.
 
+XIIII. The Africa Hab icon was made in [Sketchpad](https://sketch.io/sketchpad/) by cutting the continent from the logo and converting it with a free online converter
+
 
 <a href="#TableContents">Back to Table of Contents</a>
 <hr>
@@ -228,7 +231,6 @@ I would like to implement user authentication with social media such as facebook
 
 <a href="#TableContents">Back to Table of Contents</a>
 <hr>
-
 
 ## 4. Technologies Used <a name="Technologies"></a>
 
@@ -340,11 +342,56 @@ https://www.reduceimages.com/
 ## 5. Testing <a name="Testing"></a>
 
 
+* Manual testing was done throughout development of this project.
+* For testing user authenticated actions I created 2 profiles, in addition to the admin superuser, called Rick and Morty.
+
+
+I would log in with Rick, and leave a short product review on bag number 3,  
+I would be redirected to see the result directly and that the review has been added under the Reviews section below the detailed product section.
+
+Afterwards I would go to the FAQ page and try to leave a question, which in its final version updates the FAQ with a new question.
+
+I would then log out my user, and log in as admin to answer the previously posted question by user Rick.  
+I would be redirected to see the answer added directly under the related question.
+Then I would log out admin.
+
+To test more than one question by different users I log in with Morty and add a new question and would be able to see that it adds on top of the previous question written by Rick.
+
+I would then, still logged in as Morty, visit the same bag that Rick submitted a previous review on, and add my own review as Morty.
+After submitting it I would be redirected to see that the bag now has 2 reviews on top of each other, one made by Rick and one made by Morty.
+
+As an authenticated user with id Morty, I would only be able to see two edit/delete buttons below my own review, but not on Ricks review.
+To test edit I would click to edit on my own review (as Morty), and add an extra ! at the end, and click submit.
+
+The review will update accordingly and now show an extra ! at the end.
+After this I would try the delete button, and after clicking it I would be redirected to the viewed bag with only one review remaining written by Rick.
+
+Then, still logged in as Morty, I would visit the FAQ page and see my question similarly to reviews has an edit and delete button below my own question, but not Ricks question.
+I would proceed to test edit and delete in the same manner as I tested the review.
+I would then log out as Morty and log in as admin.
+
+I would visit the FAQ page and see Mortys unanswered question below Ricks answered question.
+I would instead of clicking answer, click the delete button to remove it.
+I would be redirected to the FAQ page with only Ricks question remaining.
+
+
 <a href="#TableContents">Back to Table of Contents</a>
 <hr>
 
 
 ### I. Validating Testing: <a name="Testing2"></a>
+
+
+I have not written any automated tests for this project, however I have done a range of validation checks on different parts of the project
+
+
+I used W3C Markup validator to validate the HTML and fixed any errors that occured.
+
+I used W3C jigsaw CSS Validator to validate the CSS and fixed any errors that occured.
+
+I used JSHint to validate the Javascript and fixed any errors that occured.
+
+I used PEP8 online to make sure my Python files are compliant to current standards.
 
 
 <a href="#TableContents">Back to Table of Contents</a>
@@ -354,6 +401,48 @@ https://www.reduceimages.com/
 ### II. Testing User Stories: <a name="Testing3"></a>
 
 
+1. As a developer I want to showcase my abilities in full stack development
+* Project is deployed on Heroku, reference to Github repository from top of this README to allow for technical inspection
+
+2. As a developer I want to have a visibly inspiring project I can be proud of to showcase for potential employers
+* Project is deployed on Heroku, reference to Github repository from top of this README to allow for technical inspection
+
+3. As a customer I want to be able to browse products on the website
+* Browsing of products is available by using category buttons or the general Shop link in the navbar
+
+4. As a customer I want to be able to see specific products in more detail
+* A detailed product view is available by clicking on a product
+
+5. As a customer I want to be able to write a review on a product
+* Enter detailed product view on any product and enter a review, see the result below the detailed product
+
+6. As a customer I want to be able to buy things in the store by card
+* Click on any product to enter detailed view, then click the add to bag button, then click the checkout button and enter adress and card information in the form, and click buy  
+Afterwards recieve an order notification
+
+7. As a customer I want to be able to contact the company about any issues
+* A Contact page is available from the navbar, where you can fill in information and click send to send an email to the site administrator
+
+8. As a customer I want to be able to visit a page for frequently asked questions which may hold some answers to my initial questions
+* A FAQ page is available from the navbar, where you can view commonly asked questions, from this page you could enter a question which you think hold some value to other customers as well
+
+9. As a customer I want to be able to create a user profile to hold my previous order history
+* From the navbar click the user icon to enter the user profile view, here you can see previous order history
+
+10. As a customer I want to be able to visit the site on mobile, tablet or desktop
+* Bootstrap columns have been used to construct the layout of the page for different width breakpoints mainly col-md(≥768px) and col-lg(≥992px)
+
+11. As the admin I want to be able to login as admin to update content on the page, ranging from products, to FAQ posts and overlooking reviews for inappropriate posts.
+* Click the user button and open login page, enter superuser username and password. An add product link has now been added to the user icon, and the admin can also delete any item in the FAQ or Review sections
+
+12. As a collaborator specializing in database modelling I want to see the database models in the repository and check for flaws in the Foreignkey relationships.
+* Github repository is made available at the top of this README, soo that the models.py files are available.
+
+13. As the site administrator, I want to be able to learn the ropes of the website easily by having clear access to the admin page, and update the website by following instructions from me.
+* As a logged in admin user, instead of adding /admin at the adressbar, I have made a navbar item called Admin visible only to the admin,  
+this links directly to the admin panel whereupon the admin can direct the different database items of the website sorted under models of each app.
+
+
 <a href="#TableContents">Back to Table of Contents</a>
 <hr>
 
@@ -361,11 +450,104 @@ https://www.reduceimages.com/
 ### III. Manual Testing: <a name="Testing4"></a>
 
 
+* Website loads upon clicking the heroku link.
+
+* Favicon loads in browser tab
+
+* Check that navlinks in navbar links to appropriate link
+
+* Clicking a product links to correct product_detail page
+
+* Footer display correctly, and social media buttons in footer links to correct pages
+
+* toast messages appear when:  
+    logging in, logging out, adding review, updating review, deleting review, adding question, updating question, deleting question,  
+    adding answer, updating answer, deleting answer, adding product, registering user, and updating userprofile.
+
+* bag works as intended: when clicking add to bag on a product, bag should fill up with the selected quantity of selected item.
+
+* items can be removed or increased/decreased in quantity in bag view
+
+* user can register, and userprofile will be automatically created upon creation
+
+* user can log in
+
+* userprofile can be accessed only after logging in
+
+* logged in user can add reviews to products
+
+* logged in users can add questions to faq
+
+* logged in user can logout
+
+* reviews posted by specific user can be edited by the same user, and not another user
+
+* questions posted by specific user can be edited by same user, and not another user
+
+* Contact form sends me an email upon submit
+
+* Elements scale down and up accordingly in different view widths
+
+* Stripe elements appear in Checkout app
+
+* Checkout works as intended and returns stripe webhook
+
+* edit question view shows form fields as intended
+
+* edit review shows form fields as intended
+
+* edit answer shows form fields as intended
+
+* admin can add or remove products from the store
+
+
 <a href="#TableContents">Back to Table of Contents</a>
 <hr>
 
 
 ## 6. Deployment <a name="Deployment"></a>
+
+
+To deploy this project I had to create an account on Heroku
+Then I created a Heroku app called salomos_apparel
+In the Resources tab I commissioned Heroku postgres for use as database
+In the settings tab I clicked reveal config vars and entered the following variables from each respective source:
+
+* DJANGO_SECRET_KEY "XXX"
+* AWS_ACCESS_KEY_ID "XXX"
+* AWS_SECRET_ACCESS_KEY "XXX"
+* AWS_STORAGE_BUCKET_NAME "AWS Bucket name"
+* STRIPE_PUBLIC_KEY "XXX"
+* STRIPE_SECRET_KEY "XXX"
+* STRIPE_WH_SECRET	"XXX"
+* EMAIL_HOST_PASS "password generated by Gmail for connecting third party service"
+* EMAIL_HOST_USER	"the connected email"
+* USE_AWS "True"
+
+A requirements.txt file was created to let Heroku know the python dependencies needed to deploy the project
+I typed the following in git bash terminal
+pip3 freeze > requirements.txt
+
+Then I created a Procfile and entered the following in it
+web: gunicorn salomo.wsgi:application
+
+Make migrations by typing
+python3 manage.py makemigrations
+
+Create tables in database by typing
+python3 manage.py migrate
+
+Then I went to the deploy tab in heroku and connected to my github repository,  
+then I selected enable automatic deploys in the automatic deployment section, and made sure master branch was selected.
+
+And then for the final time I typed
+git push
+which pushed the code to heroku thanks to the above automated deploy setting in heroku.
+
+In the bottom of the build view on heroku, the link for the deployed website can be found,  
+I clicked the link and could see the deployed website on heroku.
+
+Deploy finished.
 
 
 <a href="#TableContents">Back to Table of Contents</a>
@@ -446,7 +628,7 @@ The app can now be run locally.
 <hr>
 
 
-<img width="450" height="350" src="https://raw.githubusercontent.com/Voggastur/full-stack-framework-project/master/media/front.jpg">
+<img src="https://raw.githubusercontent.com/Voggastur/full-stack-framework-project/master/media/front.jpg" style="margin: 0, width:450px, height:350px;">
 
 
 <hr>

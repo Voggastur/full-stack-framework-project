@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extra_title %}- Add Question{% endblock %}
+
+{% block content %}
+
+<div class="container">
+	<div class="row">
+		<div class="col-12 my-20">
+			<div>
+				<h3 class="text-center">Write a Question</h3>
+			</div>
+			<div class="card-body">
+				<form action="{% url 'add_question' %}" method="POST" class="form mb-2">
+                    <div class="row">
+                        <div class="col-12 col-md-8 offset-md-2">
+					        {% csrf_token %}
+					        {{ qform }}
+                        </div>
+                        <div class="col-12 col-md-8 offset-md-2 text-center">
+                            <button class="btn btn-outline-black float-left" type="submit">Submit Question</button>
+                            <a class="btn btn-outline-black float-right" href="{% url 'faq' %}">Cancel</a>
+                        </div>
+                    </div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

@@ -13,12 +13,12 @@ class UserProfile(models.Model):
     """
     user = models.OneToOneField(
         User, on_delete=models.CASCADE, unique=True, related_name='userprofile')
-    image_url = models.URLField(max_length=200, null=True, blank=True,
-                                default='https://raw.githubusercontent.com/Voggastur/fsf-project/master/media/default.jpg')
     default_full_name = models.CharField(max_length=40, null=True, blank=True)
     default_phone_number = models.CharField(
         max_length=20, null=True, blank=True)
-    default_street_address = models.CharField(
+    default_street_address1 = models.CharField(
+        max_length=80, null=True, blank=True)
+    default_street_address2 = models.CharField(
         max_length=80, null=True, blank=True)
     default_town_or_city = models.CharField(
         max_length=40, null=True, blank=True)
@@ -26,6 +26,7 @@ class UserProfile(models.Model):
     default_county = models.CharField(max_length=80, null=True, blank=True)
     default_country = CountryField(
         blank_label='Country', null=True, blank=True)
+    image = models.ImageField(blank=True, default='default_user.jpg')
 
     def __str__(self):
         return self.user.username

@@ -1,5 +1,5 @@
 """
-ASGI config for salomo project.
+ASGI config for boutique project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 

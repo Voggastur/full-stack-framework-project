@@ -123,7 +123,7 @@ def add_answer(request, question_id):
                            'Sorry, an error has occured when posting your answer, please try again!')
         return redirect('faq')
     else:
-        answer_form = AnswerForm(instance=user)
+        answer_form = AnswerForm()
 
     context = {
         "question": question,
@@ -141,8 +141,8 @@ def edit_answer(request, answer_id):
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
 
-    answer_form = AnswerForm()
     answer = get_object_or_404(Answer, pk=answer_id)
+    answer_form = AnswerForm(instance=answer)
     user = get_object_or_404(User, username=request.user)
 
     if request.method == "POST":
@@ -156,9 +156,6 @@ def edit_answer(request, answer_id):
         else:
             messages.error(request,
                            'An error has occured when updating the answer, please try again')
-
-    else:
-        answer_form = AnswerForm(instance=user)
 
     template = 'faq/edit_answer.html'
     context = {
@@ -176,7 +173,7 @@ def delete_answer(request, answer_id):
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
 
-    answer = get_object_or_404(Answer, created_by_id=request.user, id=answer_id)
+    answer = get_object_or_404(Answer, pk=answer_id)
     answer.delete()
     messages.success(request, 'Answer has been deleted.')
 

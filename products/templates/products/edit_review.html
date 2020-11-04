@@ -13,8 +13,8 @@
 				<div class="card-body">
 					<form action="{% url 'edit_review' review.id %}" method="POST" class="mb-4">
 						{% csrf_token %}
-						{{ review_form }}
-						<a class="btn btn-outline-black float-left" aria-label="update review button" id="reviewbutton">Update Review</a>
+						{{ reviewform }}
+						<button class="btn btn-outline-black float-left" aria-label="update review button" id="reviewbutton">Update Review</button>
                         <a class="btn btn-outline-black float-right" href="{% url 'products' %}">Cancel</a>
 					</form>
 				</div>

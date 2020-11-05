@@ -83,7 +83,7 @@ def edit_question(request, question_id):
 def delete_question(request, question_id):
     """ Delete a question """
 
-    question = get_object_or_404(Question, id=question_id)
+    question = get_object_or_404(Question, created_by_id=request.user, id=question_id)
     question.delete()
     messages.success(request, 'Question has been deleted.')
 
@@ -99,7 +99,6 @@ def add_answer(request, question_id):
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
 
-    user = get_object_or_404(UserProfile, user=request.user)
     question = get_object_or_404(Question, pk=question_id)
     answer_form = AnswerForm()
 

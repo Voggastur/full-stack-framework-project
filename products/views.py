@@ -69,19 +69,17 @@ def product_detail(request, product_id):
     """ A view to show individual products and test user against reviews """
 
     product = get_object_or_404(Product, pk=product_id)
-    # default image for empty profile picture in review section
-    default_user_image = 'https://raw.githubusercontent.com/Voggastur/fsf-project/master/media/default_user.jpg'
 
-    # If review matches product id I want to import the review to the template
+    # If review matches product id I import the review to the template
     if Review.objects.filter(reviewed_product=product_id).exists():
         reviews = Review.objects.filter(reviewed_product=product_id)
+    # else review is None then show something else in the template
     else:
         reviews = None
 
     context = {
         'product': product,
         'reviews': reviews,
-        'default_user_image': default_user_image,
     }
 
     return render(request, 'products/product_detail.html', context)
@@ -97,6 +95,7 @@ def add_review(request, product_id):
     related_review = Review.objects.filter(reviewed_product=product_id)
     reviewform = ReviewForm()
 
+    # Attempt to fill form_data with the POST, then insert in ReviewForm
     if request.method == 'POST':
         reviewform = ReviewForm(request.POST, instance=product)
         form_data = {
@@ -105,13 +104,14 @@ def add_review(request, product_id):
             }
         reviewform = ReviewForm(form_data)
 
+        # If form is valid, attempt to add user and reviewed_product and save
         if reviewform.is_valid():
             review = reviewform.save(commit=False)
             review.created_by = request.user
             review.reviewed_product = product
             review.save()
             messages.success(request,
-                             f'Review for {product.name} has been posted!')
+                             f'Thank you {request.user}, a review for {product.name} has been posted!')
         else:
             messages.error(request,
                            'Sorry, an error has occured when posting your review, please try again!')
@@ -132,8 +132,8 @@ def add_review(request, product_id):
 def edit_review(request, review_id):
     """ View to edit an existing review """
 
+    # Here I navigate through the foreignkey to reach the user id which was a nice accomplishment
     review = get_object_or_404(Review, created_by_id=request.user, pk=review_id)
-    # user = get_object_or_404(User, username=request.user)
     reviewform = ReviewForm(instance=review)
 
     if request.method == "POST":

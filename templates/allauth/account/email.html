@@ -6,6 +6,8 @@
 
 {% block content %}
 <div class="container">
+<div class="row">
+<div class="col-8 offset-2 col-lg-6 offset-lg-3">
     <h1>{% trans "E-mail Addresses" %}</h1>
 {% if user.emailaddress_set.all %}
 <p>{% trans 'The following e-mail addresses are associated with your account:' %}</p>
@@ -53,6 +55,8 @@
         {{ form.as_p }}
         <button name="action_add" type="submit">{% trans "Add E-mail" %}</button>
     </form>
+</div>
+</div>
 </div>
 {% endblock %}
 

@@ -105,8 +105,8 @@
 					<div class="review-card row">
 						<div class="col-2 d-none d-md-inline p-0">
 							<img alt="User picture" class="rounded-circle" height="100" width="100" src="{% if review.created_by.userprofile.image.url %}
-                            {{ review.created_by.userprofile.image.url }}{% else %}{{ default_user_image }}{% endif %}">
-                            <!-- If userprofile lacks image, use default image defined in the view -->
+                            {{ review.created_by.userprofile.image.url }}{% else %}{{ MEDIA_URL }}default.jpg{% endif %}">
+                            <!-- If userprofile lacks image, use default image -->
                         </div>
 							<div class="col-10 pl-5">
 								<div class="blockquote">
@@ -116,6 +116,7 @@
 										{% if review.created_by %}{{ review.created_by }}{% else %} Guest
 										User {% endif %}</p>
 								</div>
+                                <!-- If review creator matches the user, CRUD options will appear -->
 								{% if review.created_by == request.user %}
 								<div class="button-wrapper">
 									<a class="btn btn-outline-black" href="{% url 'edit_review' review.id %}"
@@ -129,13 +130,15 @@
 						<hr>
 					</div>
 					{% endfor %}
+                    <!-- If no reviews just show this paragraph-->
 					{% else %}
 					<div class="col-10 offset-1">
 						<div class="media">
 							<div class="media-body">
 								<blockquote class="blockquote">
 									<p class="text-center">There are no reviews yet<br>
-                                    Be the first to write one!</p>
+                                        Be the first to write one!
+                                    </p>
 								</blockquote>
 							</div>
 						</div>

@@ -6,8 +6,6 @@ from profiles.models import UserProfile
 from .models import Question, Answer
 from .forms import QuestionForm, AnswerForm
 
-# Create your views here.
-
 
 def faq(request):
     """ Returns the Frequently Asked Questions template and
@@ -40,6 +38,7 @@ def add_question(request):
 
         if qform.is_valid():
             question = qform.save(commit=False)
+            # Add user to question.created_by before save
             question.created_by = request.user
             question.save()
             messages.success(request,

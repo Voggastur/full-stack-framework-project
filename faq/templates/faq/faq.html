@@ -7,8 +7,7 @@
 
 <h5 class="text-center my-5">Frequently Asked Questions</h5>
 
-
-<div class="container my-5">
+<div class="container mb-5">
     <div class="row">
         {% for question in questions %}
         <div class="col-sm-10 offset-sm-1 col-12 my-20">
@@ -24,59 +23,62 @@
                         {% else %}Guest{% endif %} at {% if question.created_at %}
                         {{ question.created_at }}{% else %}an unknown time{% endif %}
                     </p>
-                    <!-- is user is same as creator, edit and delete buttons show up -->
+                    <!-- is user is same as creator, edit and delete buttons show up,
+                    In addition, the edit_question and delete_question views are locked behind @login_required decorators -->
                     {% if question.created_by == request.user %}
                     <div class="button-wrapper">
                         <a class="btn btn-outline-black" href="{% url 'edit_question' question.id %}">Edit Question</a>
                         <a class="btn btn-black" href="{% url 'delete_question' question.id %}">Delete Question</a>
                     </div>
                     {% endif %}
+                    <!-- If user is superuser admin controls will appear here for deleting inappropriate questions.
+                    As stated above, the delete_question view is locked behind a @login_required decorator -->
                     {% if request.user.is_superuser %}
                     <div class="button-wrapper">
-                        <p class="button-wrapper-p">Admin Controls</p>
+                        <p class="button-wrapper-p">Administrator Controls</p>
                         <a class="btn btn-black" href="{% url 'delete_question' question.id %}">Delete Question</a>
                     </div>
                     {% endif %}
                 </div>
-                <div class="card-body"> <!-- card body holds answer and relevant edit buttons for the relevant user -->
+                <div class="card-body"> <!-- The card body element holds the answer to the question and edit buttons for the relevant user -->
                     {% if question.related_answer %}
-                    <div class="my-5">
-                        <!-- Navigation through the answer foreignkey was tricky business but a great achievement when finally done -->
+                    <div class="my-2">
+                        <!-- It might not look like much, but navigation through the answer foreignkey was tricky business and a great achievement to be done -->
                         <h4 class="text-left">{{ question.related_answer.text }}</h4>
-                        <p class="text-left">Posted {{ question.related_answer.created_at }}</p>
-                        <!-- If user is admin, edit and delete buttons for this answer are visible -->
+                        <p class="font-italic text-left">Posted by Administrator on {{ question.related_answer.created_at }}</p>
+                        <!-- If user is admin, edit and delete buttons for this answer are visible,
+                        In addition to @login_required decorators for these views, an if statement inside the view checks for superuser privileges, else redirect back to faq -->
                         {% if request.user.is_superuser %}
                         <div class="button-wrapper">
-                            <p class="button-wrapper-p">Admin Controls</p>
+                            <p class="button-wrapper-p">Administrator Controls</p>
                             <button class="btn btn-outline-black" href="{% url 'edit_answer' question.related_answer.id %}">Edit Answer</button>
                             <a class="btn btn-black" href="{% url 'delete_answer' question.related_answer.id %}">Delete Answer</a>
                         </div>
                         {% endif %}
                     </div>
+                    <!-- if no question.related_answer, this paragraph is shown -->
                     {% else %}
-                    <div class="my-5">
+                    <div class="my-2">
                         <p class="text-muted text-italic">
-                            <small>Question is awaiting input from admin</small>
+                            <small>Question is awaiting input from administrator</small>
                         </p>
+                        <!-- inside this else block which already rules no answers, the option is presented to the superuser to write an answer -->
                         {% if request.user.is_superuser %}
                         <div class="button-wrapper">
-                            <p class="button-wrapper-p">Admin Controls</p>
+                            <p class="button-wrapper-p">Administrator Controls</p>
                             <!-- Button for 'add_answer' or delete_question for easy admin access -->
                             <a class="btn btn-outline-black" href="{% url 'add_answer' question.id %}">Add an answer</a>
                         </div>
                         {% endif %}
                     </div>
                     {% endif %}
-                </div>
-                <!-- .card-body end -->
-            </div>
-            <!-- .card-faq end -->
-        </div>
-        <!-- col-12 end -->
+                </div><!-- .card-body end -->
+            </div><!-- .card-faq end -->
+        </div><!-- col-12 end -->
         {% endfor %}
     </div>
 </div>
-<!-- Button for 'add_question' -->
+<!-- Button for 'add_question', present for anyone, but since the view has @login_required decorator, a guest will be redirected to login screen -->
 <div class="d-flex my-5 justify-content-center">
     <a class="btn btn-outline-black" href="{% url 'add_question' %}">Add a Question</a>
 </div>

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% block extra_title %}- Sorted Products{% endblock %}
+{% block extra_title %}- Product Categoy{% endblock %}
 
 {% block content %}
 <div class="container-fluid">
@@ -95,6 +95,7 @@
 						</form>
 					</div>
 				</div>
+                <!-- Reviews Section Start -->
 				<div class="col-12 my-5">
 					<h2 class="text-center">Reviews</h2>
 				</div>
@@ -104,9 +105,10 @@
 				<div class="col-10 offset-1 pb-4">
 					<div class="review-card row">
 						<div class="col-2 d-none d-md-inline p-0">
+                            <!-- If userprofile lacks image, use default image.
+                            The src attribute navigates through the userprofile foreignkey of the iterated review to find the image -->
 							<img alt="User picture" class="rounded-circle" height="100" width="100" src="{% if review.created_by.userprofile.image.url %}
                             {{ review.created_by.userprofile.image.url }}{% else %}{{ MEDIA_URL }}default.jpg{% endif %}">
-                            <!-- If userprofile lacks image, use default image -->
                         </div>
 							<div class="col-10 pl-5">
 								<div class="blockquote">
@@ -115,8 +117,10 @@
 									<p class=" ml-2 mb-1 font-italic">
 										{% if review.created_by %}{{ review.created_by }}{% else %} Guest
 										User {% endif %}</p>
+                                    <!-- This paragraph checks if the review has an author, in case of a Guest User, although the app doesn't yet permit reviews by unauthorized guests.
+                                    However I'd like to leave this here for further development -->
 								</div>
-                                <!-- If review creator matches the user, CRUD options will appear -->
+                                <!-- If review creator matches the current user, CRUD options will appear -->
 								{% if review.created_by == request.user %}
 								<div class="button-wrapper">
 									<a class="btn btn-outline-black" href="{% url 'edit_review' review.id %}"

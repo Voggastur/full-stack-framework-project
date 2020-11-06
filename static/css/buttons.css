@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 /* Category Buttons Styling */
 
 .button-container {
@@ -9,12 +16,16 @@
 .button-divider-top {
   width: 100%;
   height: 50px;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#f0d4e8), to(#fafafa));
+  background-image: -o-linear-gradient(bottom, #f0d4e8, #fafafa);
   background-image: linear-gradient(to top, #f0d4e8, #fafafa);
 }
 
 .button-divider-bottom {
   width: 100%;
   height: 50px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f0d4e8), to(#fafafa));
+  background-image: -o-linear-gradient(top, #f0d4e8, #fafafa);
   background-image: linear-gradient(to bottom, #f0d4e8, #fafafa);
 }
 
@@ -24,10 +35,11 @@
   height: 150px;
   background-color: #fafafa;
   -webkit-box-shadow: 0px 0px 20px 0px #fff;
-  -moz-box-shadow: 0px 0px 20px 0px #fff;
   box-shadow: 0px 0px 20px 0px #fff;
   overflow: hidden;
   margin-bottom: 4px;
+  -webkit-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
   transition: all 500ms ease;
 }
 
@@ -40,8 +52,10 @@
   top: 15px;
   will-change: transform;
   -webkit-transform: scale(0.05);
-  transform: scale(0.05);
+  -ms-transform: scale(0.05);
+      transform: scale(0.05);
   -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
 
@@ -56,6 +70,8 @@
   font-size: 2.5em;
   font-weight: 700;
   pointer-events: none;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 
@@ -68,8 +84,11 @@
   opacity: 0.8;
   font-size: 12px;
   letter-spacing: 1px;
-  writing-mode: vertical-lr;
+  -webkit-writing-mode: vertical-lr;
+      -ms-writing-mode: tb-lr;
+          writing-mode: vertical-lr;
   -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
 
@@ -77,9 +96,13 @@
   z-index: 5;
   width: 75%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   background-size: 100% 100%;
-  filter: grayscale(80%);
+  -webkit-filter: grayscale(80%);
+          filter: grayscale(80%);
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
 
@@ -102,27 +125,32 @@
 
 .flair i:nth-of-type(1) {
   -webkit-transition-delay: 0.1s;
-  transition-delay: 0.1s;
+  -o-transition-delay: 0.1s;
+     transition-delay: 0.1s;
 }
 
 .flair i:nth-of-type(2) {
   -webkit-transition-delay: 0.2s;
-  transition-delay: 0.2s;
+  -o-transition-delay: 0.2s;
+     transition-delay: 0.2s;
 }
 
 .flair i:nth-of-type(3) {
   -webkit-transition-delay: 0.3s;
-  transition-delay: 0.3s;
+  -o-transition-delay: 0.3s;
+     transition-delay: 0.3s;
 }
 
 .flair i:nth-of-type(4) {
   -webkit-transition-delay: 0.4s;
-  transition-delay: 0.4s;
+  -o-transition-delay: 0.4s;
+     transition-delay: 0.4s;
 }
 
 .flair i:nth-of-type(5) {
   -webkit-transition-delay: 0.5s;
-  transition-delay: 0.5s;
+  -o-transition-delay: 0.5s;
+     transition-delay: 0.5s;
 }
 
 .nav-button {
@@ -137,6 +165,8 @@
   cursor: pointer;
   outline: none;
   opacity: 1;
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
 
@@ -147,12 +177,14 @@
 .small-card:hover i {
   opacity: 1;
   -webkit-transform: scale(1);
-  transform: scale(1);
+  -ms-transform: scale(1);
+      transform: scale(1);
 }
 
 .small-card:hover .nav-button {
   -webkit-transform: scale(28);
-  transform: scale(28);
+  -ms-transform: scale(28);
+      transform: scale(28);
   opacity: 0;
 }
 
@@ -162,9 +194,11 @@
 }
 
 .small-card:hover .pic {
-  filter: grayscale(0);
+  -webkit-filter: grayscale(0);
+          filter: grayscale(0);
   -webkit-transform: scale(1.1);
-  transform: scale(1.1);
+  -ms-transform: scale(1.1);
+      transform: scale(1.1);
 }
 
 .small-card:hover h2 {
@@ -172,11 +206,11 @@
   color: burlywood;
   right:20%;
   -webkit-transform: scale(1.05);
-  transform: scale(1.05);
+  -ms-transform: scale(1.05);
+      transform: scale(1.05);
 }
 
 .small-card:hover {
   -webkit-box-shadow: 0px 0px 10px 0px #800080;
-  -moz-box-shadow: 0px 0px 10px 0px #800080;
   box-shadow: 0px 0px 10px 0px #800080;
 }

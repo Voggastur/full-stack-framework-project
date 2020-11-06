@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 /* General */
 
 html,
@@ -11,6 +18,8 @@ body,
 a {
   color: #000;
   text-decoration: none;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
   transition: all 0.5s;
 }
 
@@ -27,6 +36,8 @@ header {
 }
 
 nav {
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#fff), to(#f0d4e8));
+  background-image: -o-linear-gradient(bottom, #fff, #f0d4e8);
   background-image: linear-gradient(to top, #fff, #f0d4e8);
 }
 
@@ -43,8 +54,13 @@ nav {
 }
 
 .custom-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   list-style: none;
 }
 
@@ -69,7 +85,8 @@ nav {
 .front-img {
   border-radius: 20px;
   width: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .front-p {
@@ -82,20 +99,23 @@ nav {
 .product-card {
   max-width: 20em;
   border-radius: 10px;
-  box-shadow: 3px 3px 15px #60555d, -3px -3px 15px #ddd;
+  -webkit-box-shadow: 3px 3px 15px #60555d, -3px -3px 15px #ddd;
+          box-shadow: 3px 3px 15px #60555d, -3px -3px 15px #ddd;
   overflow: hidden;
 }
 
 .card-img {
   height: 19em;
   max-height: 20em;
-  object-fit: fill;
+  -o-object-fit: fill;
+     object-fit: fill;
 }
 
 /* Product Detail */
 
 .card-img-detail {
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   width: 100%;
   height: 100%;
   max-height: 25em;
@@ -103,14 +123,18 @@ nav {
 }
 
 .review-card {
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 /* FAQ */
 
 .button-wrapper {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
-  margin: 10px, 0px;
+  margin: 10px 0px;
 }
 
 .button-wrapper-p {
@@ -143,6 +167,8 @@ nav {
 /* Footer */
 
 .footer {
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#f0d4e8), to(#fafafa));
+  background-image: -o-linear-gradient(bottom, #f0d4e8, #fafafa);
   background-image: linear-gradient(to top, #f0d4e8, #fafafa);
   padding: 30px 0;
 }
@@ -221,9 +247,15 @@ footer .fa-instagram {
 /* from Bulma */
 
 .icon {
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
   display: inline-flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   height: 1.5rem;
   width: 1.5rem;
 }
@@ -233,6 +265,8 @@ footer .fa-instagram {
 }
 
 .main-logo-link {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
 }
 
@@ -301,6 +335,22 @@ a.category-badge > span.badge:hover {
   cursor: pointer;
 }
 
+input[name="q"]::-webkit-input-placeholder {
+  color: #aab7c4;
+}
+
+input[name="q"]::-moz-placeholder {
+  color: #aab7c4;
+}
+
+input[name="q"]:-ms-input-placeholder {
+  color: #aab7c4;
+}
+
+input[name="q"]::-ms-input-placeholder {
+  color: #aab7c4;
+}
+
 input[name="q"]::placeholder {
   color: #aab7c4;
 }
@@ -319,6 +369,22 @@ input[name="q"]::placeholder {
 
 .allauth-form-inner-content label:not([for="id_remember"]) {
   display: none;
+}
+
+.allauth-form-inner-content input::-webkit-input-placeholder {
+  color: #aab7c4;
+}
+
+.allauth-form-inner-content input::-moz-placeholder {
+  color: #aab7c4;
+}
+
+.allauth-form-inner-content input:-ms-input-placeholder {
+  color: #aab7c4;
+}
+
+.allauth-form-inner-content input::-ms-input-placeholder {
+  color: #aab7c4;
 }
 
 .allauth-form-inner-content input::placeholder {
@@ -342,6 +408,10 @@ input[name="q"]::placeholder {
   font-size: 1rem;
   line-height: 1.5;
   border-radius: 0;
+  -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  -o-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
@@ -368,22 +438,35 @@ input[name="q"]::placeholder {
 /* Bootstrap lg breakpoint changes */
 @media (max-width: 992px) {
   .custom-list {
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     display: inline;
   }
   .nav-link {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
   }
   .cart {
     top: 8em;
     right: 0.5em;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
     height: fit-content;
   }
   .bag {
     top: 3.5em;
     right: 0.5em;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
     height: fit-content;
   }
 }

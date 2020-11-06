@@ -17,9 +17,7 @@
 	<link
 		href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Montserrat:ital,wght@0,300;0,400;0,700;1,300;1,500&display=swap"
 		rel="stylesheet" />
-	<!-- Hover.css -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css">
-	<!-- Fontawesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -75,7 +73,8 @@
 	</div>
 	{% endif %}
 
-	<div class="topblock"></div>
+    <!-- Searchbar used from previous Boutique Ado project -->
+	<div class="topblock"></div><!-- Topblock pushes content below the fixed navbar -->
 	<div class="col-10 offset-1 col-lg-4 offset-lg-4">
 		<form method="GET" action="{% url 'products' %}">
 			<div class="input-group w-100">
@@ -91,16 +90,15 @@
 		</form>
 	</div>
 
-	<!-- Navlike Buttons For Shop Items Just Below Nav And Header -->
+	<!-- These are styled category buttons for product items -->
 	{% include 'includes/buttons.html' %}
 
-	<!-- Main Apps Go In Here -->
+	<!-- Main apps render here -->
 	<section class="py-3">
 		{% block content %}
 		{% endblock %}
 	</section>
 
-	<!-- Included Footer Here -->
 	{% include 'includes/footer.html' %}
 
 	{% block postloadjs %}

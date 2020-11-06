@@ -5,54 +5,55 @@
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
         </button>
-			<div class="collapse navbar-collapse" id="navbarNavDropdown">
-				<ul class="custom-list pt-2 ml-2">
-					<li class="nav-item"><a class="nav-link active hvr-underline-reveal" href="{% url 'home' %}">Home
-							<span class="sr-only">(current)</span></a></li>
-					<li class="nav-item"><a class="nav-link hvr-underline-reveal" href="{% url 'products' %}">Shop</a>
-					</li>
-					<li class="nav-item"><a class="nav-link hvr-underline-reveal" href="{% url 'about' %}">About</a>
-					</li>
-					<li class="nav-item"><a class="nav-link hvr-underline-reveal" href="{% url 'contact' %}">Contact</a>
-					</li>
-					<li class="nav-item"><a class="nav-link hvr-underline-reveal" href="{% url 'faq' %}">FAQ</a></li>
-					<!-- Admin quick link for easy access to admin panel -->
-					{% if request.user.is_superuser %}
-					<li class="nav-item"><a class="nav-link hvr-underline-reveal"
-							href="{% url 'admin:index' %}">Admin</a></li>
-					{% endif %}
-					<li class="nav-item bag dropleft">
-						<a class="nav-link hvr-grow" href="#" id="user-options" data-toggle="dropdown"
-							aria-haspopup="true" aria-expanded="false">
-							<div class="text-center">
-								<div><i class="fas fa-user"></i><br>
-									<p class="d-inline d-lg-none text-center">User</p>
-								</div>
+		<div class="collapse navbar-collapse" id="navbarNavDropdown">
+			<ul class="custom-list pt-2 ml-2">
+				<li class="nav-item"><a class="nav-link active hvr-underline-reveal" href="{% url 'home' %}">Home
+						<span class="sr-only">(current)</span></a></li>
+				<!-- This is a general product view that shows all products -->
+				<li class="nav-item"><a class="nav-link hvr-underline-reveal" href="{% url 'products' %}">Shop</a>
+				</li>
+				<li class="nav-item"><a class="nav-link hvr-underline-reveal" href="{% url 'about' %}">About</a>
+				</li>
+				<li class="nav-item"><a class="nav-link hvr-underline-reveal" href="{% url 'contact' %}">Contact</a>
+				</li>
+				<li class="nav-item"><a class="nav-link hvr-underline-reveal" href="{% url 'faq' %}">FAQ</a></li>
+				<!-- Admin panel quick link for easy access for superuser -->
+				{% if request.user.is_superuser %}
+				<li class="nav-item"><a class="nav-link hvr-underline-reveal"
+						href="{% url 'admin:index' %}">Admin</a></li>
+				{% endif %}
+				<li class="nav-item bag dropleft">
+					<a class="nav-link hvr-grow" href="#" id="user-options" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false">
+						<div class="text-center">
+							<div><i class="fas fa-user"></i><br>
+								<p class="d-inline d-lg-none text-center">User</p>
 							</div>
-						</a>
-						<div class="dropdown-menu border-0" aria-labelledby="user-options">
-							{% if request.user.is_authenticated %}
-							{% if request.user.is_superuser %}
-							<a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
-							{% endif %}
-							<a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
-							<a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-							{% else %}
-							<a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-							<a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-							{% endif %}
 						</div>
-					</li>
-					<li class="nav-item cart">
-						<a class="nav-link hvr-grow" href="{% url 'view_bag' %}">
-							<div class="text-center p-0">
-								<div><i class="fas fa-shopping-bag"></i><br>
-									<p class="d-inline d-lg-none text-center">Cart</p>
-								</div>
+					</a>
+					<div class="dropdown-menu border-0" aria-labelledby="user-options">
+						{% if request.user.is_authenticated %}
+						{% if request.user.is_superuser %}
+						<a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
+						{% endif %}
+						<a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+						<a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+						{% else %}
+						<a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+						<a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+						{% endif %}
+					</div>
+				</li>
+				<li class="nav-item cart">
+					<a class="nav-link hvr-grow" href="{% url 'view_bag' %}">
+						<div class="text-center p-0">
+							<div><i class="fas fa-shopping-bag"></i><br>
+								<p class="d-inline d-lg-none text-center">Cart</p>
 							</div>
-						</a>
-					</li>
-				</ul>
-			</div>
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
 	</nav>
 </header>

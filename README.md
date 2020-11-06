@@ -5,8 +5,10 @@
 <img src="https://raw.githubusercontent.com/Voggastur/full-stack-framework-project/master/media/front.jpg" style="margin: 0, width:450px, height:350px;">
 
 
-This website is my final project in the Code Institute Full Stack Development Course, and the goal is to present my knowledge accumulated so far.
+This is my final project in the Code Institute Full Stack Development Course, and the goal is to present my knowledge accumulated so far in full stack development.
 In particular Django Development modules introduced in the final stage of the course.
+
+[Deployed Website](https://africahab.herokuapp.com/)
 
 
 <hr>
@@ -385,13 +387,13 @@ I would be redirected to the FAQ page with only Ricks question remaining.
 I have not written any automated tests for this project, however I have done a range of validation checks on different parts of the project
 
 
-I used W3C Markup validator to validate the HTML and fixed any errors that occured.
+I used W3C Markup validator to validate the HTML.
 
-I used W3C jigsaw CSS Validator to validate the CSS and fixed any errors that occured.
+I used W3C jigsaw CSS Validator to validate the CSS.
 
-I used JSHint to validate the Javascript and fixed any errors that occured.
+I used JSHint to validate the Javascript.
 
-I used PEP8 online to make sure my Python files are compliant to current standards.
+I used PEP8 online to make sure my Python files are PEP8 compliant.
 
 
 <a href="#TableContents">Back to Table of Contents</a>
@@ -614,7 +616,7 @@ The app can now be run locally.
 3. Copy the web URL presented.
 4. Open your IDE, and open the terminal.
 5. use cd to change the directory to where you want to clone the repository in.
-6. Paste the Git URL https://github.com/Voggastur/full-stack-framework-project.git and press enter.
+6. Type - "git clone https://github.com/Voggastur/full-stack-framework-project.git ." to clone the project to current folder.
 
 
 <a href="#table-of-contents">Back to top</a>
@@ -622,6 +624,27 @@ The app can now be run locally.
 
 
 ## 7. Credits <a name="Credits"></a>
+
+
+* The basis for this project is the Boutique Ado project by Chris Zielinski at Code Institute, but with visual customizations and expanded features.
+* The Bag and Checkout apps are almost entirely imported from the Boutique Ado project with no modifications except renamed references to Boutique Ado.
+
+* The Profiles app is largely imported as well, except for new image field in userprofile, and relevant field mentions in the forms and views.
+
+* The Products app has its foundation in Boutique Ado as well, in particular the products.html template, although with new css.
+The Product and Category models, the all_products view, the widgets.py and custom_clearable_file_input template used for image file inputs were also imported.
+Although the widget is now also in use for the Profiles.userprofile model and form view.
+The Product model was shortened with less fields than the original to make it more comprehensible in the beginning of my development.
+The Products product_detail view had to be modified to also show reviews, but from there on all the code is handmade, although a lot of repeating patterns could be used.
+
+* Corey Schafer on Youtube have good video tutorials for Django beginners that helped me write the faq app and relevant models.
+Youtube in general is a good source of educating material related to Django, although most like to suddenly spice up the projects with difficult concepts.
+This makes it difficult to absorb the knowledge and I could only gain a bit here and there.
+That's why the Corey Schafer tutorials were good, he didn't unnecessararily complicate his beginner tutorials.
+
+* The Stripe [webpage](https://www.stripe.com/) was checked frequently to understand and test webhooks, and set up a new endpoint.
+
+* Slack was a frequent source of solutions when troubleshooting, and valuable insights were gained from discussions with other students.
 
 
 <a href="#TableContents">Back to Table of Contents</a>

@@ -4,5 +4,4 @@ core.python*
 env.py
 __pycache__/
 *.py[cod]
-static/
 .theia/

@@ -172,7 +172,7 @@ Both Rick and Morty have put up questions on the faq page, which the site admini
 
 The business goals of Africa Hab are:
 
-I. To sell authentic homemade bags and dresses.
+I. To sell authentic homemade bags and dresses.  
 II. To encourage Lidyas work in something she enjoys doing.
 
 

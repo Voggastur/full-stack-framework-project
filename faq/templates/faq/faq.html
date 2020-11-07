@@ -51,7 +51,7 @@
                         {% if request.user.is_superuser %}
                         <div class="button-wrapper">
                             <p class="button-wrapper-p">Administrator Controls</p>
-                            <button class="btn btn-outline-black" href="{% url 'edit_answer' question.related_answer.id %}">Edit Answer</button>
+                            <a class="btn btn-outline-black" href="{% url 'edit_answer' question.related_answer.id %}">Edit Answer</a>
                             <a class="btn btn-black" href="{% url 'delete_answer' question.related_answer.id %}">Delete Answer</a>
                         </div>
                         {% endif %}

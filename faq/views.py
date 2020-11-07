@@ -110,6 +110,7 @@ def add_answer(request, question_id):
 
         if answer_form.is_valid():
             answer = answer_form.save(commit=False)
+            # Add related foreignkey to each other before save
             answer.related_question = question
             question.related_answer = answer
             answer.save()

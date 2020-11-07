@@ -95,11 +95,11 @@
 						</form>
 					</div>
 				</div>
-                <!-- Reviews Section Start -->
 				<div class="col-12 my-5">
 					<h2 class="text-center">Reviews</h2>
 				</div>
 				<hr>
+                <!-- Reviews Start -->
 				{% if reviews %}
 				{% for review in reviews %}
 				<div class="col-10 offset-1 pb-4">
@@ -115,9 +115,13 @@
 									<p class="ml-2 mb-2">{{review.header}}</p>
 									<p class=" ml-2 mb-2">{{review.body}}</p>
 									<p class=" ml-2 mb-1 font-italic">
-										{% if review.created_by %}{{ review.created_by }}{% else %} Guest
-										User {% endif %}</p>
-                                    <!-- This paragraph checks if the review has an author, in case of a Guest User, although the app doesn't yet permit reviews by unauthorized guests.
+										{% if review.created_by %}
+                                        {{ review.created_by }}
+                                        {% else %} Guest User 
+                                        {% endif %}
+                                    </p>
+                                    <!-- This paragraph checks if the review has an author, in case of a Guest User, 
+                                    although the app doesn't yet permit reviews by unauthorized guests.
                                     However I'd like to leave this here for further development -->
 								</div>
                                 <!-- If review creator matches the current user, CRUD options will appear -->

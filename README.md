@@ -9,8 +9,7 @@ This is my final project in the Code Institute Full Stack Development Course, an
 In particular Django Development modules introduced in the final stage of the course.
 
 
-[Deployed Website](https://africahab.herokuapp.com/)  
-[Project Repository](https://github.com/Voggastur/full-stack-framework-project/)
+[Deployed Website](https://africahab.herokuapp.com/)
 
 
 <hr>

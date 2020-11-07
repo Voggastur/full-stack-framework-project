@@ -5,10 +5,12 @@
 <img src="https://raw.githubusercontent.com/Voggastur/full-stack-framework-project/master/media/front.jpg" style="margin: 0, width:450px, height:350px;">
 
 
-This is my final project in the Code Institute Full Stack Development Course, and the goal is to present my knowledge accumulated so far in full stack development.
+This is my final project in the Code Institute Full Stack Development Course, and the goal is to present my proficiency so far in full stack development.
 In particular Django Development modules introduced in the final stage of the course.
 
-[Deployed Website](https://africahab.herokuapp.com/)
+
+[Deployed Website](https://africahab.herokuapp.com/)  
+[Project Repository](https://github.com/Voggastur/full-stack-framework-project/)
 
 
 <hr>
@@ -30,15 +32,15 @@ In particular Django Development modules introduced in the final stage of the co
 4. [Technologies used](#Technologies)
 5. [Testing](#Testing)
 
-    I. [Validators](#Testing2)
+    I. [Validators](#Testing1)
     
-    II. [Testing user stories](#Testing3)
+    II. [Testing user stories](#Testing2)
 
-    III. [Manual Testing](#Testing4)
+    III. [Manual Testing](#Testing3)
     
 6. [Deployment](#Deployment)
 
-    I. [How to run this project locally](#Deployment2)
+    I. [How to run this project locally](#Deployment1)
 
     II. [How to clone this project locally](#Deployment2)
 
@@ -50,23 +52,24 @@ In particular Django Development modules introduced in the final stage of the co
 ## 1. UX <a name="UX"></a>
 
 
-I decided to build an e-commerce store for the sister of my wife who is quite handy making bags and clothes.
+I decided to build an e-commerce store for Lidya, who is the sister of my wife and quite handy making various apparel.
 I have mixed in some of her real content with bags, shirts and shoes found on the web.
 
 The admin will have the ability to manipulate store items, via CRUD functionality.
 
 There will also be a FAQ messageboard for interaction with users, the admin can delete questions he doesn't like and answer the one he likes.
 A Contact page will also be present for private concerns with email functionality in the backend via emailJS.
+Emails sent via the Contact page are sent to v3x0rx014@gmail.com, my own email.
 
-Product Reviews will also be present for authenticated users, limit one review per product and user, however every product shall be able to hold more than 1 review from different users.
+Product Reviews have been implemented, and authenticated users can also write one, limit one review per product and user, however every product shall be able to show more than 1 review.
 
-User authentication checks happen frequently across the page so creating a User Profile is mandatory for most interactions except for browsing wares and FAQ pages.
+User authentication checks happen frequently across the page so creating a User Profile is mandatory for most interactions except for browsing.
 
 When testing payment I always used the VISA option:
 Card: 4242 4242 4242 4242
 
-Expiry date shall be in the future, although I never type a year more than 5 years into the future.
-CV2 can be any 3 numbers and the postcode I always matched with my delivery adress postcode.
+Expiry date shall be in the future, although I never used a year more than 5 years into the future.
+CV2 can be any 3 numbers and the postcode I always matched with my delivery adress postcode, but I don't think there are any checks.
 
 
 <a href="#TableContents">Back to Table of Contents</a>
@@ -121,19 +124,18 @@ Attached are 2 pdf files one for the database schema made in excel and one with 
 The wireframes stage is were I am usually stuck for days, every initial design seems lacklustre and lacking in style or functionality.
 After testing a few paths into what was actually possible within my scope of ability I had an easier time drawing up schemes for the different pages.
 
-The initial name for the project was Salomos Apparel, the biblical israelite king who is revered in Ethiopia as the alleged dynastic ancestor of the Ethiopian Solomononid kings  
-through his love with the Queen of Sheba. The last king in this bloodline that spans almost 3000 years was killed in a communist uprising in 1973,  
-however abrahamitic traditions and reverence of the past stays as a strong influence.
+The initial name for the project was Salomos Apparel. Salomo is a biblical figure of great reverence in Ethiopia as he is the alleged 
+ancestor of the royal family in Ethiopia through his love-child with the equally revered Queen of Sheba.
 
-However as I talked with Lidya the person I actually want to do this for, she already had a logotype and name of her brand - Africa Hab,  
-so I use that instead from that point. This explains the project name salomo.
+However as I talked with Lidya the person I am doing this for, she already had a logotype and name of her brand - Africa Hab,  
+so I use that instead from that point. This explains the project name salomo, and some references to salomos apparel in settings.py, for example the AWS S3 Bucket.
 
-After some backbreaking work in the design process I believe that frontend design is not my specialty,
-however as I step into the midproject development I find myself really enjoying seeing backend code come to fruition and work as intended.
+After realizing the design process was taking a lot of time I believe that frontend design is not my specialty, even though it is fun.
+However as I step into the midproject development I find myself really enjoying watching backend code come to fruition and work as intended.
 
 I found it helpful to simply list the projects different django apps functionality and relation inbetween, to get an overview in the magnitude of complexity - one of the wireframe pages reflects this process.
 
-The database wireframe is implemented generally as planned aside from different fieldnames
+The database wireframe is implemented generally as planned aside from different fieldnames, and reviews are moved into the products app.
 
 
 <a href="#TableContents">Back to Table of Contents</a>
@@ -146,17 +148,20 @@ The database wireframe is implemented generally as planned aside from different 
 For this project I used the Boutique Ado project we did in the last stage of Code Institute as groundwork and I added the models;
 Review, Question and Answer.
 
-Userprofiles now have an image_url to show a little image next to their reviews, a default user image was taken from facebook to prefill this field.
+Userprofiles now have an image to show next to their reviews, a default user image was taken from google to prefill this field on user registration.
 
-I foregone the FAQ accordion implementation since I want to show the answers directly upon viewing the page.
-Answers must be posted by an authenticated admin, but questions can be posted by any logged in user.
-This means that questions will be posted and then wait for an answer, until the admin inspects the page and inputs an answer,
-a default muted text explains that the question is waiting for a response from admin, until the admin adds an answer by clicking a button visible only to the admin.
+I foregone the FAQ accordion implementation for complexity issues and the answers show directly upon viewing the page.
+The number of questions listed is not expected to be immense, but in that case an accordion could help save window space, I might implement it in the future
 
-My initial plan was to have a landing site for presentation and products in another app, then I worked on a layout of showing products directly on the frontpage.
-In the end I implemented the former plan in any case, because of concerns with increasing complexity when implementing products with the home app.
+Answers on the FAQ page must be posted by an authenticated admin, but questions can be posted by any logged in user.
+This means that posted questions will initially have a small muted paragraph below saying it's waiting for an answer until admin interaction.
+An Add Answer button is visible only for the authenticated superuser.
 
-Nearing the end of my development I created two users for testing my features, Rick and Morty, with two images from the rick and morty tv series. Both Rick and Morty have left 2 reviews each.
+My initial plan was to have a landing site for presentation and products in the same app, then I changed my mind and separated the home app from the products, 
+as the case is for the foundation app Boutique Ado. Because I was concerned with increasing complexity.
+
+Near the end of my development I created two users to test my features, Rick and Morty, with two images from the rick and morty tv series. Both Rick and Morty have left 2 reviews each.
+Both Rick and Morty have put up questions on the faq page, which the site administrator account also have put up answers to.
 
 
 <a href="#TableContents">Back to Table of Contents</a>
@@ -178,46 +183,45 @@ II. To encourage Lidyas work in something she enjoys doing.
 ## 2. Features <a name="Features"></a>
 
 
-I. The FAQ app is a messageboard where the admin can interact with the users by answering questions posted by users.  
+I. The FAQ app is a messageboard where the admin can interact with the users by answering questions posted by users.
 Preferably the admin can post some questions of his own to which many users have requested an answer
 
-II. User authentication is handled with django-allauth by handling login and signup,  
+II. User authentication is handled with django-allauth by handling login and signup,
 additionally userprofiles are autocreated upon user registration.
 
-III. A review model was created for the product app for showing in detailed product view,  
-and the questions and answers models are in the FAQ app for use in faq.html.  
+III. A review model was created for the product app for showing in detailed product view,
+and the questions and answers models are in the FAQ app for use in faq.html.
 Questions can be posted by any authenticated user, and will be publicly posted, answers must be posted by admin.
 
 IV. An authenticated user can add a review for any product, and he can edit or delete the review after posting it
 
-V. The Boutique Ado project that was created in the previous Code institute module is the groundwork of this page,  
-some apps that came along have survived the transition with little to no changes, such as the bag app and the checkout page,  
-which only needed some adaptation for links and changes to match changes in the user profile, which have some fields different from the boutique ado project.
+V. The Boutique Ado project that I made in the previous Code institute module is the groundwork of this page,
+some apps that came along have made the transition with little to no changes, such as the bag app and the checkout page,
+which only needed some adaptation for links and changes to match other changes in the userprofile, which have some fields different from the boutique ado project.
 
-VI. A Contact Page is with emailJS backend is implemented for contact with admin directly for different concerns.
+VI. A Contact Page with emailJS backend is implemented for contact with admin directly for different concerns.
 
 VII. A technically simple About page was added to provide some background on the people behind the page.
 
-VIII. Separated navigation buttons for product categories have been made into 4 large buttons below the fixed navbar,  
-some advanced styling was made for the purpose, otherwise the four categories would have been added to a simple dropdown menu in the regular navbar.
+VIII. Separated navigation buttons for product categories have been made into 4 large buttons below the fixed navbar,
+some advanced styling was made for the purpose, otherwise the four categories would have been a simple dropdown menu in the navbar.
 
-IX. A general Shop button was added to navbar to provide for a non-contextual browsing of all products mixed.
+IX. A general Shop button was added to navbar to provide for a non-contextual browsing of all mixed products,
+this feels a little superfluous with so few products in the store at this point, and after all the work I put into the styled category buttons, but I decided to keep it.
 
-X. An admin button link was added to the navbar that shows only if logged in as admin.  
-I implemented this after I learned the trick {% url 'admin:index' %} which will show the admin index subpath.
+X. An admin button link was added to the navbar that shows only if logged in as superuser.
+I implemented this after I learned the trick {% url 'admin:index' %} which will link to the admin index subpath.
 
-XI. I searched for good matching fonts on google, and found Merriweather and Montserrat, which look nice for my purpose.  
-Although I misspelled Montserrat for Montferrat several times during my development, even Merriweather sometimes got mixed up in memory as Merryweather.
+XI. I searched for good matching fonts on google, and found Merriweather and Montserrat, which looks nice for my purpose.
+However I came to like Montserrat so much that I used it everywhere and decided to drop out Merriweather in the end.
 
-XII. Colors used in this web project are white #ffffff, black #000000, and a very light pink #f0d4e8.  
-For my buttons categories I had slight contrast issues so I settled with 'burlywood' #deb887 for overlying text and a  
-strong pink-purple #800080 for a hover effect on a button and a box-shadow.  
-In all my Code Institute projects since the beginning of learning css I have come to like the ease of using linear-gradients to add some easy transitions over the page,  
-on this website I use only a few linear-gradients to provide soft pink into new content sections of the page.
+XII. Colors used in this web project are white #ffffff, a very dark blue #212529 for backgrounds, and a gold color #d1a000.
+For my buttons categories I had slight contrast issues so I settled with 'burlywood' #deb887 for overlying text and the gold #d1a000 
+for a hover effect on a button and a box-shadow.
 
 XIII. The Africa Hab Logo was made in [Sketchpad](https://sketch.io/sketchpad/) and I use it in the left side of the navbar. It acts as a 'Home' button.
 
-XIIII. The Africa Hab icon was made in [Sketchpad](https://sketch.io/sketchpad/) by cutting the continent from the logo and converting it with a free online converter
+XIIII. The Africa Hab Icon was made in [Sketchpad](https://sketch.io/sketchpad/) by cutting the continent from the logo and converting it with a free online converter
 
 
 <a href="#TableContents">Back to Table of Contents</a>
@@ -225,6 +229,7 @@ XIIII. The Africa Hab icon was made in [Sketchpad](https://sketch.io/sketchpad/)
 
 
 ## 3. Features for the future <a name="Features2"></a>
+
 
 I would like to implement rating for all the products, perhaps it could be as part of leaving a review.
 
@@ -334,7 +339,7 @@ https://sketch.io/sketchpad/
 
 https://www.reduceimages.com/
 
-* Used for resizing images
+* Used for automatically resizing images by upload
 
 
 <a href="#TableContents">Back to Table of Contents</a>
@@ -381,26 +386,28 @@ I would be redirected to the FAQ page with only Ricks question remaining.
 <hr>
 
 
-### I. Validators: <a name="Testing2"></a>
+### I. Validators: <a name="Testing1"></a>
 
 
-I have not written any automated tests for this project, however I have done a range of validation checks on different parts of the project
+I have not written automated tests for this project, however I have done a few validation checks on different parts of the project
 
 
-I used W3C Markup validator to validate the HTML.
+* I used W3C Markup validator to try and validate HTML as I finished development.
+However many errors show due to the nature of django templates, so reading the printout is difficult
 
-I used W3C jigsaw CSS Validator to validate the CSS.
+* I used W3C jigsaw CSS Validator to validate CSS.
+Many warnings show for prefixes added with the Autoprefixer, but since they are needed for browser interoperability, I ignore those.
 
-I used JSHint to validate the Javascript.
+* I used JSHint to validate the Javascript.
 
-I used PEP8 online to make sure my Python files are PEP8 compliant.
+* I used PEP8 to help with indendation and make sure the Python files are PEP8 compliant.
 
 
 <a href="#TableContents">Back to Table of Contents</a>
 <hr>
 
 
-### II. Testing User Stories: <a name="Testing3"></a>
+### II. Testing User Stories: <a name="Testing2"></a>
 
 
 1. As a developer I want to showcase my abilities in full stack development
@@ -419,7 +426,7 @@ I used PEP8 online to make sure my Python files are PEP8 compliant.
 * Enter detailed product view on any product and enter a review, see the result below the detailed product
 
 6. As a customer I want to be able to buy things in the store by card
-* Click on any product to enter detailed view, then click the add to bag button, then click the checkout button and enter adress and card information in the form, and click buy  
+* Click on any product to enter detailed view, then click the add to bag button, then click the checkout button and enter adress and card information in the form, and click checkout.
 Afterwards recieve an order notification
 
 7. As a customer I want to be able to contact the company about any issues
@@ -441,7 +448,7 @@ Afterwards recieve an order notification
 * Github repository is made available at the top of this README, soo that the models.py files are available.
 
 13. As the site administrator, I want to be able to learn the ropes of the website easily by having clear access to the admin page, and update the website by following instructions from me.
-* As a logged in admin user, instead of adding /admin at the adressbar, I have made a navbar item called Admin visible only to the admin,  
+* As a logged in admin user, instead of manually adding /admin at the adressbar, I have made a navbar item called Admin that is visible only to the admin,
 this links directly to the admin panel whereupon the admin can direct the different database items of the website sorted under models of each app.
 
 
@@ -449,7 +456,7 @@ this links directly to the admin panel whereupon the admin can direct the differ
 <hr>
 
 
-### III. Manual Testing: <a name="Testing4"></a>
+### III. Manual Testing: <a name="Testing3"></a>
 
 
 * Website loads upon clicking the heroku link.
@@ -466,7 +473,7 @@ this links directly to the admin panel whereupon the admin can direct the differ
     logging in, logging out, adding review, updating review, deleting review, adding question, updating question, deleting question,  
     adding answer, updating answer, deleting answer, adding product, registering user, and updating userprofile.
 
-* bag works as intended: when clicking add to bag on a product, bag should fill up with the selected quantity of selected item.
+* bag works as intended: when clicking add to bag on a product, bag should fill up with the selected quantity of the selected item.
 
 * items can be removed or increased/decreased in quantity in bag view
 
@@ -556,7 +563,7 @@ Deployment finished.
 <hr>
 
 
-### I. How to run this project locally <a name="Deployment2"></a>
+### I. How to run this project locally <a name="Deployment1"></a>
 
 
 You will need to create a free account on AWS and set up an S3 bucket
@@ -608,7 +615,7 @@ The app can now be run locally.
 <hr>
 
 
-### II. How to clone this project locally <a name="Deployment3"></a>
+### II. How to clone this project locally <a name="Deployment2"></a>
 
 
 1. Select the Github Repository of this project.
@@ -626,10 +633,10 @@ The app can now be run locally.
 ## 7. Credits <a name="Credits"></a>
 
 
-* The basis for this project is the Boutique Ado project by Chris Zielinski at Code Institute, but with visual customizations and expanded features.
-* The Bag and Checkout apps are almost entirely imported from the Boutique Ado project with no modifications except renamed references to Boutique Ado.
+* The basis for this project is the Boutique Ado project by Chris Zielinski at Code Institute, but with my own customizations and expanded features.
+* The Bag and Checkout apps are almost entirely unchanged from the Boutique Ado project with no modifications except renamed references to Boutique Ado.
 
-* The Profiles app is largely imported as well, except for new image field in userprofile, and relevant field mentions in the forms and views.
+* The Profiles app is largely untouched as well, except for new image field in userprofile, and relevant image field mentions in the forms and views.
 
 * The Products app has its foundation in Boutique Ado as well, in particular the products.html template, although with new css.
 The Product and Category models, the all_products view, the widgets.py and custom_clearable_file_input template used for image file inputs were also imported.
@@ -638,13 +645,13 @@ The Product model was shortened with less fields than the original to make it mo
 The Products product_detail view had to be modified to also show reviews, but from there on all the code is handmade, although a lot of repeating patterns could be used.
 
 * Corey Schafer on Youtube have good video tutorials for Django beginners that helped me write the faq app and relevant models.
-Youtube in general is a good source of educating material related to Django, although most like to suddenly spice up the projects with difficult concepts.
+Youtube in general is a good source of educating material related to Django, although most of them like to suddenly spice up the projects with difficult concepts.
 This makes it difficult to absorb the knowledge and I could only gain a bit here and there.
-That's why the Corey Schafer tutorials were good, he didn't unnecessararily complicate his beginner tutorials.
+That's why I want to credit Corey Schafer here, he didn't unnecessararily complicate his beginner tutorials, and I achieved a treshold of understanding.
 
 * The Stripe [webpage](https://www.stripe.com/) was checked frequently to understand and test webhooks, and set up a new endpoint.
 
-* Slack was a frequent source of solutions when troubleshooting, and valuable insights were gained from discussions with other students.
+* Slack was a frequent source of help when troubleshooting, and valuable insights were gained from discussions with other students.
 
 
 <a href="#TableContents">Back to Table of Contents</a>

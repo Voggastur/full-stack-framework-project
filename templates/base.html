@@ -17,14 +17,8 @@
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
-    <!-- After much struggle with a minor css update relating to color schemes of my already deployed website on heroku,
-    I cloned the heroku repo into git and could see the updated css, I also checked amazon and found the updated css files there,
-    I just can't find where these old files are resting. I even deleted the whole heroku app and created a new one - with same name and environment variables.
-    I decided to forgo the static files mess and directly include these links here,
-    I found them in the Source tab of my heroku project in chrome developer view, but the project wasn't actively using that source.
-    No idea why it still uses the old css files, and I'm running out of time to send this in. I hope this works -->
-    <link rel="stylesheet" href="https://salomos-apparel.s3.amazonaws.com/static/css/style.css" />
-	<link rel="stylesheet" href="https://salomos-apparel.s3.amazonaws.com/static/css/buttons.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+	<link rel="stylesheet" href="{% static 'css/buttons.css' %}">
 	{% endblock %}
 
 	{% block corejs %}

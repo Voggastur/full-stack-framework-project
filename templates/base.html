@@ -10,19 +10,13 @@
 	{% endblock %}
 
 	{% block corecss %}
-	<link rel="shortcut icon"
-		href="{{ MEDIA_URL }}africa.ico"
-		type="image/x-icon" />
-	<!-- Google Fonts Merriweather & Montserrat -->
-	<link
-		href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Montserrat:ital,wght@0,300;0,400;0,700;1,300;1,500&display=swap"
-		rel="stylesheet" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css">
+	<link rel="shortcut icon" href="{{ MEDIA_URL }}africa.ico" type="image/x-icon"/>
+	<!-- Google Font Montserrat -->
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
-	<!-- CSS -->
 	<link rel="stylesheet" href="{% static 'css/style.css' %}" />
 	<link rel="stylesheet" href="{% static 'css/buttons.css' %}">
 	{% endblock %}
@@ -46,6 +40,7 @@
 	{% endblock %}
 
 	<title>Africa Hab {% block extra_title %}{% endblock %}{% block head_title %}{% endblock %}</title>
+    <!-- I noticed some allauth templates use block head_title, so I added head_title block here, and the two blocks won't interfere since its either one or the other -->
 
 </head>
 
@@ -90,16 +85,20 @@
 		</form>
 	</div>
 
+    <section class="m-0 p-0">
 	<!-- These are styled category buttons for product items -->
 	{% include 'includes/buttons.html' %}
+	</section>
 
+    <section class="m-0 py-5">
 	<!-- Main apps render here -->
-	<section class="py-3">
 		{% block content %}
 		{% endblock %}
 	</section>
 
+    <section class="m-0">
 	{% include 'includes/footer.html' %}
+	</section>
 
 	{% block postloadjs %}
 	<script type="text/javascript">

@@ -633,11 +633,11 @@ The app can now be run locally.
 
 
 * The basis for this project is the Boutique Ado project by Chris Zielinski at Code Institute, but with my own customizations and expanded features.
-* The Bag and Checkout apps are almost entirely unchanged from the Boutique Ado project with no modifications except renamed references to Boutique Ado.
+* The Bag and Checkout apps are used as is from the Boutique Ado project except for a few renamed variables.
 
-* The Profiles app is largely untouched as well, except for new image field in userprofile, and relevant image field mentions in the forms and views.
+* The Profiles app is largely similar as well, except for a new image field in userprofile, and relevant image field mentions in the forms and views.
 
-* The Products app has its foundation in Boutique Ado as well, in particular the products.html template, although with new css.
+* The Products app has its foundation in Boutique Ado as well, in particular the products.html template, although with some new css.
 The Product and Category models, the all_products view, the widgets.py and custom_clearable_file_input template used for image file inputs were also imported.
 Although the widget is now also in use for the Profiles.userprofile model and form view.
 The Product model was shortened with less fields than the original to make it more comprehensible in the beginning of my development.
@@ -648,9 +648,11 @@ Youtube in general is a good source of educating material related to Django, alt
 This makes it difficult to absorb the knowledge and I could only gain a bit here and there.
 That's why I want to credit Corey Schafer here, he didn't unnecessararily complicate his beginner tutorials, and I achieved a treshold of understanding.
 
+* The Category buttons css is separated because they were found on this codepen https://codepen.io/yancy/pen/gBLLxz and then modified and augmented with my own styles.
+
 * The Stripe [webpage](https://www.stripe.com/) was checked frequently to understand and test webhooks, and set up a new endpoint.
 
-* Slack was a frequent source of help when troubleshooting, and valuable insights were gained from discussions with other students.
+* Slack was a frequent source of help when troubleshooting, and valuable insights were gained from discussions with other students on Code Institute.
 
 
 <a href="#TableContents">Back to Table of Contents</a>

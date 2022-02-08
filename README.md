@@ -68,7 +68,7 @@ When testing payment I always used the VISA option:
 Card: 4242 4242 4242 4242
 
 Expiry date shall be in the future, although I never used a year more than 5 years into the future.
-CV2 can be any 3 numbers and the postcode I always matched with my delivery adress postcode, but I don't think there are any checks.
+CV2 can be any 3 numbers and the postcode I always matched with my delivery adress postcode, but I don't think there are any checks from the Stripe side.
 
 
 <a href="#TableContents">Back to Table of Contents</a>

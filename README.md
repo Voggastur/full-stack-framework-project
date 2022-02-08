@@ -56,11 +56,11 @@ I have mixed in some of her real content with bags, shirts and shoes found on th
 
 The admin will have the ability to manipulate store items, via CRUD functionality.
 
-There will also be a FAQ messageboard for interaction with users, the admin can delete questions he doesn't like and answer the one he likes.
-A Contact page will also be present for private concerns with email functionality in the backend via emailJS.
-Emails sent via the Contact page are sent to v3x0rx014@gmail.com, my own email.
+There is also a FAQ messageboard for interaction with users, the admin can delete questions he doesn't like and answer the one he likes.
+A Contact page is also present for sending PM with email functionality via emailJS.
+Emails sent via the Contact page are sent to the admin email.
 
-Product Reviews have been implemented, and authenticated users can also write one, limit one review per product and user, however every product shall be able to show more than 1 review.
+Product Reviews are available, and authenticated users can write reviews, limited to one review per product and user, however every product can handle several reviews.
 
 User authentication checks happen frequently across the page so creating a User Profile is mandatory for most interactions except for browsing.
 
